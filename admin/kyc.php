@@ -304,7 +304,7 @@
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Approve KYC</h5>
             </div>
             <div class="modal-body">
@@ -353,7 +353,7 @@
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Reject KYC</h5>
             </div>
             <div class="modal-body">
@@ -403,7 +403,7 @@
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Front Picture</h5>
             </div>
             <div class="modal-body">
@@ -423,7 +423,7 @@
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Back Picture</h5>
             </div>
             <div class="modal-body">

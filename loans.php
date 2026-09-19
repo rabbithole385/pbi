@@ -493,7 +493,7 @@ require_once("scripts/functions.php");
 	    box-shadow: 0 0 23px -5px #000;
 	}
 	.banner-content h3{
-		color: #033d75;
+		color: #164e63;
 	    font-size: 34px;
 	    text-transform: uppercase;
 	    margin-bottom: 15px;
@@ -518,7 +518,7 @@ require_once("scripts/functions.php");
 	.toggleclass{
 	    display: inline-block;
 	    margin: 15px 0 10px 0;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.col-sm-4.rightwr p{
 		line-height: 32px;
@@ -530,7 +530,7 @@ require_once("scripts/functions.php");
 		padding: 40px 30px 30px;
 	}
 	.cardWr .col-sm-4{
-		background-color: #033d75;
+		background-color: #164e63;
 		color: #fff;
 	}
 	.cardWr .col-sm-4 .col-sm-12{
@@ -543,7 +543,7 @@ require_once("scripts/functions.php");
 	.cardWr .col-sm-12 h2{
 		font-size: 22px;
 	    font-weight: bold;
-	    color: #033d75;
+	    color: #164e63;
 	    margin-bottom: 17px;
 	    margin-top: 15px;
 	    text-transform: uppercase;
@@ -583,7 +583,7 @@ require_once("scripts/functions.php");
 		margin-right: 10px; 
 	}
 	i.fa.fa-check {
-	    color: #033d75;
+	    color: #164e63;
 	    font-size: 19px;
 	}
 </style>

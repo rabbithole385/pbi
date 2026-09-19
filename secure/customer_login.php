@@ -71,7 +71,7 @@ require_once("../scripts/functions.php");
 					<div class="top-menu-left">
 						<p>Need help? Contact Us</p>
 						  
-						<b><i class="fa fa-envelope"></i><a style="color:##fff;" href="mailto:<?php echo$siteemail ?> "><?php echo$siteemail ?> </a></b>
+						<b><i class="fa fa-envelope"></i><a style="color:#fff;" href="mailto:<?php echo$siteemail ?> "><?php echo$siteemail ?> </a></b>
 					</div>				
 				</div>				
 				<div class="col-md-6">
@@ -121,7 +121,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
 						<a class="navbar-brand" href="..\index-2">
 							<img style="max-width:220px;" src="..\<?php echo$logo ?>" class="d-inline-block align-top" alt="">
-							<!--<h2><span style="color:##EC4550;">I</span><span style="color:##0E3768;">BG</span></h2>-->
+							<!--<h2><span style="color:#ca8a04;">I</span><span style="color:#164e63;">BG</span></h2>-->
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -134,7 +134,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Banking Services <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Accounts & services</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav1">	
@@ -210,7 +210,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Borrowing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Loans & mortgages</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav2">	
@@ -299,7 +299,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Investing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Products & analysis</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav3">	
@@ -385,7 +385,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Insurance <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Property & family</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav4">	
@@ -455,7 +455,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Life events <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Help & support</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav5">	
@@ -533,7 +533,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	</div>
 	<!--NAVIGATION END--><style>
     ##userpinid,##useridtextid {
-    color: ##717171;
+    color: #717171;
     font-size: 1em;
     line-height: 1.375em;
     background: none;
@@ -544,7 +544,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     border-bottom-color: currentcolor;
     border-bottom-style: none;
     border-bottom-width:medium;
-    border-bottom: 1px solid ##ccc;
+    border-bottom: 1px solid #ccc;
     padding: .313em;
     margin: .188em 0;
 }
@@ -878,7 +878,7 @@ function myFunction() {
 						</div>
 					</div>
 				</div>	
-				<div class="col-sm-12" style="height: 1px;width:100%;background-color:##EF454D;"></div>
+				<div class="col-sm-12" style="height: 1px;width:100%;background-color:#ca8a04;"></div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
 						<figure><img src="../images/bl-840.jpg" alt="slide 1" class=""></figure>

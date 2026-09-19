@@ -1,9 +1,9 @@
 ═══════════════════════════════════════════════════════════════════
-  OBfixed — Lightweight & Railway-Ready Online Banking Build
+  Aurelia Bank & Trust — Lightweight & Railway-Ready Online Banking Build
 ═══════════════════════════════════════════════════════════════════
 
 Overview:
-  • Cleaned, optimized, lightweight rebuild of the OBfixed banking script.
+  • Cleaned, optimized, lightweight rebuild of the Aurelia banking script.
   • Stripped out 70+ unneeded scraped marketing pages and redundant 56MB zip files.
   • Added auto-detection for Railway MySQL environment variables.
   • Built-in one-click database seeder (/railway-seed.php).
@@ -39,6 +39,13 @@ Default Access Credentials:
   Customer Online Banking:
     URL:        https://YOUR-APP.up.railway.app/secure/customer_login.php
     Register:   https://YOUR-APP.up.railway.app/secure/enroll-now-step1.php
+
+    Test user accounts (for demo only, delete after customizing):
+      Email:      john@example.com     Password: 123456   (John Doe, USD Savings)
+      Email:      jane@example.com     Password: 123456   (Jane Smith, GBP Current)
+
+  Note: The database ships with a FRESH, CLEAN SLATE. No real customer data,
+        no old transactions, no legacy KYC docs — 3 users (admin + 2 demo) only.
 
 ───────────────────────────────────────────────────────────────────
 Local Testing (Optional):

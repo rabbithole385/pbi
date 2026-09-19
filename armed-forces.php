@@ -66,7 +66,7 @@ require_once("scripts/functions.php");
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
 						<a class="navbar-brand" href="index-2">
 							<img style="max-width:125px;" src="<?php echo$logo ?>" class="d-inline-block align-top" alt="">		
-							<!--<h2><span style="color:#EC4550;">I</span><span style="color:#0E3768;">BG</span></h2>-->
+							<!--<h2><span style="color:#ca8a04;">I</span><span style="color:#164e63;">BG</span></h2>-->
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -490,7 +490,7 @@ require_once("scripts/functions.php");
 	    box-shadow: 0 0 23px -5px #000;
 	}
 	.banner-content h3{
-		color: #033d75;
+		color: #164e63;
 	    font-size: 30px;
 	    text-transform: uppercase;
 	    margin-bottom: 15px;
@@ -514,7 +514,7 @@ require_once("scripts/functions.php");
 		padding: 40px 30px 30px;
 	}
 	.cardWr .col-sm-4{
-		background-color: #033d75;
+		background-color: #164e63;
 		color: #fff;
 	}
 	.cardWr .col-sm-4 .col-sm-12{
@@ -531,7 +531,7 @@ require_once("scripts/functions.php");
 	.cardWr .col-sm-12 h2{
 		font-size: 22px;
 	    font-weight: bold;
-	    color: #033d75;
+	    color: #164e63;
 	    margin-bottom: 17px;
 	    margin-top: 15px;
 	    text-transform: uppercase;
@@ -554,7 +554,7 @@ require_once("scripts/functions.php");
 	    position: relative;
 	    margin-left: 20px;
 	    margin-bottom: 30px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.card-single-wr h2::before {
 	    position: absolute;
@@ -562,7 +562,7 @@ require_once("scripts/functions.php");
 	    top: 0;
 	    width:5px;
 	    height: 32px;
-	    background-color: #EF454D;
+	    background-color: #ca8a04;
 	    content: '';
 	}
 	.col-sm-8.leftwr h2::before {
@@ -576,18 +576,18 @@ require_once("scripts/functions.php");
 	    font-size: 24px;
 	    margin-top: 40px;
 	    font-weight: bold;
-	    color: #EF454D;
+	    color: #ca8a04;
 	}
 	.cardWr .col-sm-12 li, .inner-card-wr li{
 		display: block;
 		margin-bottom: 14px;
 	}
 	.card-single-wr {
-	    border-top: 1px solid #033d75;
+	    border-top: 1px solid #164e63;
 	    padding: 45px 0 22px;
 	}
 	.inner-card-wr p a{
-		color: #033d75;
+		color: #164e63;
 		text-decoration: underline;
 	}
 	.firstspan{
@@ -618,7 +618,7 @@ require_once("scripts/functions.php");
 		margin-right: 10px; 
 	}
 	i.fa.fa-check {
-	    color: #033d75;
+	    color: #164e63;
 	    font-size: 19px;
 	}
 	.inner-card-wr.lowerwr ul {
@@ -626,16 +626,16 @@ require_once("scripts/functions.php");
 	}
 	i.fa.fa-download {
 	    margin-right: 10px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.inner-card-wr.lowerwr li {
 	    font-weight: normal;
 	}
 	.inner-card-wr.lowerwr li a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.inner-card-wr.lowerwr li a:hover{
-		color: #EF454D;
+		color: #ca8a04;
 	}
 	.toggleclass{
 		color: #333;
@@ -652,7 +652,7 @@ require_once("scripts/functions.php");
 		margin-bottom: 35px;
 	}
 	.collapse h3 a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.business-wr{
 		padding:0;
@@ -670,7 +670,7 @@ require_once("scripts/functions.php");
 	    line-height: 29px;
 	}
 	.single-bolg.hover01 a:hover .blog-content{
-		color: #EF454D;
+		color: #ca8a04;
 		transition: all .5s ease 0s;
 	}
 	.single-bolg.hover01{
@@ -680,7 +680,7 @@ require_once("scripts/functions.php");
 		margin-top: 0;
 	}
 	.inner-card-wr.quotewr {
-	    background: #033d75;
+	    background: #164e63;
 	    color: #fff;
 	    padding: 45px 25px 25px;
 	    text-align: center;
@@ -689,7 +689,7 @@ require_once("scripts/functions.php");
 	    font-weight: bold;
 	}
 	.accordion {
-    	background-color: #033d75;
+    	background-color: #164e63;
 	    color: #fff;
 	    cursor: pointer;
 	    padding: 18px;
@@ -706,7 +706,7 @@ require_once("scripts/functions.php");
 		margin-bottom: 45px;
 	}
 	.accordion.active, .accordion:hover {
-	    background-color: #EF454D;
+	    background-color: #ca8a04;
 	    outline: none;
 	    border: none;
 	}
@@ -745,7 +745,7 @@ require_once("scripts/functions.php");
 		font-weight: normal;
 	}
 	.inner-card-wr.quotewr {
-	    background: #033d75;
+	    background: #164e63;
 	    color: #fff;
 	    padding: 45px 25px 25px;
 	    text-align: center;

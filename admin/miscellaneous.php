@@ -4,7 +4,7 @@ include("header.php");
 <div class="nk-content">
 	<?php if(empty($_GET['action'])) { ?>
 	 <div class="card card-bordered card-preview">
-                     <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                     <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                        <h5 class="text-white"> <em class="icon ni ni-moon"></em> Upload account Details</h5>
                     </div>
                     <div class="card-body">
@@ -84,7 +84,7 @@ $rows = mysqli_fetch_array($query);
 ?>
 
  <div class="card card-bordered card-preview">
-                     <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                     <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                        <h5 class="text-white"> <em class="icon ni ni-moon"></em> Update Account Details</h5>
                     </div>
                     <div class="card-body">

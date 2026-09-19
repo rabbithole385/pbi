@@ -91,15 +91,15 @@
 
          $mail = new PHPMailer();
          $mail->isSMTP();
-         $mail->Host = 'rednersbank.com';
+         $mail->Host = 'aureliasbank.com';
          $mail->SMTPAuth = true;
          $mail->CharSet = "UTF-8";
-         $mail->Username = 'support@rednersbank.com'; 
+         $mail->Username = 'support@aureliasbank.com'; 
          $mail->Password = 'correction419';
          $mail->SMTPSecure = 'tls';
          $mail->Port = 587;
-         $mail->setFrom('support@rednersbank.com', 'Rednerbank');
-         $mail->addReplyTo('support@rednersbank.com', 'Rednerbank');
+         $mail->setFrom('support@aureliasbank.com', 'Aurelia');
+         $mail->addReplyTo('support@aureliasbank.com', 'Aurelia');
          $mail->addAddress($email);
          //subject
          $mail->Subject = 'Confirm transaction';
@@ -555,7 +555,7 @@
             <tr>
               <td class="email-masthead">
                 <a class="f-fallback email-masthead_name">
-                Rednerbank Digital
+                Aurelia Digital
               </a>
               </td>
             </tr>
@@ -568,7 +568,7 @@
                     <td class="content-cell">
                       <div class="f-fallback">
                         <p><h1>Dear '.$firstname.' '.$middlename.' '.$lastname.',
-                         You have requested to transfer $'.$amountr.' from your rednerbank '.$account_type.'. 
+                         You have requested to transfer $'.$amountr.' from your aureliabank '.$account_type.'. 
                         </p>
                         <p>If this was legitimate activity from you and were expecting this email, consider using the code below to verify this transaction.</p>
                         <!-- Action -->
@@ -588,9 +588,9 @@
                           </tr>
                         </table>
 
-                        <p>If you do not use Rednerbank internet banking or did not attempted to carry out a transaction via Redner internet banking, please ignore this email or <a href="mailto:support@rednersbank.com">contact support</a> if you have questions.</p>
+                        <p>If you do not use Aurelia internet banking or did not attempted to carry out a transaction via Redner internet banking, please ignore this email or <a href="mailto:support@aureliasbank.com">contact support</a> if you have questions.</p>
                         <hr>
-                        <p>style =\"color:red\"> *Never disclose your Internet Banking Password, Credit/Debit Card Number and PIN or online security code to anyone. Rednerbank will never Ask you to disclose any of the above. Kindly disregard such request.</p>
+                        <p>style =\"color:red\"> *Never disclose your Internet Banking Password, Credit/Debit Card Number and PIN or online security code to anyone. Aurelia will never Ask you to disclose any of the above. Kindly disregard such request.</p>
                         <!-- Sub copy -->
                       </div>
                     </td>
@@ -603,9 +603,9 @@
                 <table class="email-footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
                   <tr>
                     <td class="content-cell" align="center">
-                      <p class="f-fallback sub align-center">&copy; '. date("Y").' Rednerbank Plc All rights reserved.</p>
+                      <p class="f-fallback sub align-center">&copy; '. date("Y").' Aurelia Plc All rights reserved.</p>
                       <p class="f-fallback sub align-center">
-                        Rednerbank, LLC
+                        Aurelia, LLC
                         <br>105 N Main St
 Wichita, KS 67202
                       </p>

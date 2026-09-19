@@ -494,7 +494,7 @@ require_once("scripts/functions.php");
 	    width:auto;
 	}
 	.banner-content h3{
-		color: #033d75;
+		color: #164e63;
 	    font-size: 28px;
 	    text-transform: uppercase;
 	    margin-bottom: 15px;
@@ -511,7 +511,7 @@ require_once("scripts/functions.php");
 	    border-radius: 0;
 	}
 	.single-bolg.hover01 a:hover .blog-content{
-		color: #EF454D;
+		color: #ca8a04;
 		transition: all .5s ease 0s;
 	}
 	.cardWr .col-sm-8{
@@ -521,7 +521,7 @@ require_once("scripts/functions.php");
 		padding: 40px 30px 30px;
 	}
 	.cardWr .col-sm-4{
-		background-color: #033d75;
+		background-color: #164e63;
 		color: #fff;
 	}
 	.cardWr .col-sm-4 .col-sm-12{
@@ -534,7 +534,7 @@ require_once("scripts/functions.php");
 	.cardWr .col-sm-12 h2{
 		font-size: 22px;
 	    font-weight: bold;
-	    color: #033d75;
+	    color: #164e63;
 	    margin-bottom: 17px;
 	    margin-top: 15px;
 	    text-transform: uppercase;
@@ -557,7 +557,7 @@ require_once("scripts/functions.php");
 	    position: relative;
 	    margin-left: 20px;
 	    margin-bottom: 30px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.card-single-wr h2::before {
 	    position: absolute;
@@ -565,7 +565,7 @@ require_once("scripts/functions.php");
 	    top: 0;
 	    width:5px;
 	    height: 32px;
-	    background-color: #EF454D;
+	    background-color: #ca8a04;
 	    content: '';
 	}
 	.inner-card-wr h3{
@@ -573,18 +573,18 @@ require_once("scripts/functions.php");
 	    font-size: 24px;
 	    margin-top: 40px;
 	    font-weight: bold;
-	    color: #EF454D;
+	    color: #ca8a04;
 	}
 	.cardWr .col-sm-12 li, .inner-card-wr li{
 		display: block;
 		margin-bottom: 14px;
 	}
 	.card-single-wr {
-	    border-top: 1px solid #033d75;
+	    border-top: 1px solid #164e63;
 	    padding: 45px 0 22px;
 	}
 	.inner-card-wr p a{
-		color: #033d75;
+		color: #164e63;
 		text-decoration: underline;
 	}
 	.firstspan{
@@ -618,7 +618,7 @@ require_once("scripts/functions.php");
 		margin-right: 10px; 
 	}
 	i.fa.fa-check {
-	    color: #033d75;
+	    color: #164e63;
 	    font-size: 19px;
 	}
 	.inner-card-wr.lowerwr ul {
@@ -626,16 +626,16 @@ require_once("scripts/functions.php");
 	}
 	i.fa.fa-download {
 	    margin-right: 10px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.inner-card-wr.lowerwr li {
 	    font-weight: normal;
 	}
 	.inner-card-wr.lowerwr li a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.inner-card-wr.lowerwr li a:hover{
-		color: #EF454D;
+		color: #ca8a04;
 	}
 	.toggleclass{
 		color: #333;
@@ -652,7 +652,7 @@ require_once("scripts/functions.php");
 		margin-bottom: 35px;
 	}
 	.collapse h3 a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.business-wr{
 		padding:0;
@@ -664,7 +664,7 @@ require_once("scripts/functions.php");
 	    text-align: left;
 	    margin-bottom: 22px;
 	    min-height: auto;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.single-bolg.hover01{
 		margin-top: 0;
@@ -680,7 +680,7 @@ require_once("scripts/functions.php");
 		text-align: center;
 	}
 	.accordion {
-    	background-color: #033d75;
+    	background-color: #164e63;
 	    color: #fff;
 	    cursor: pointer;
 	    padding: 18px;
@@ -697,7 +697,7 @@ require_once("scripts/functions.php");
 		margin-bottom: 45px;
 	}
 	.accordion.active, .accordion:hover {
-	    background-color: #EF454D;
+	    background-color: #ca8a04;
 	    outline: none;
 	    border: none;
 	}
@@ -756,7 +756,7 @@ require_once("scripts/functions.php");
 					.tab {
 					    overflow: hidden;
 					    border: 1px solid #ccc;
-					    background-color: #033d75;
+					    background-color: #164e63;
 					}
 
 					/* Style the buttons inside the tab */
@@ -786,7 +786,7 @@ require_once("scripts/functions.php");
 					}
 					/* Change background color of buttons on hover */
 					.tab button:hover {
-					    background-color: #EF454D;
+					    background-color: #ca8a04;
 					}
 					.tabcontent h3{
 						margin: 32px 0 15px;
@@ -795,7 +795,7 @@ require_once("scripts/functions.php");
 
 					/* Create an active/current tablink class */
 					.tab button.active {
-					    background-color: #EF454D;
+					    background-color: #ca8a04;
 					}
 
 					/* Style the tab content */
@@ -806,7 +806,7 @@ require_once("scripts/functions.php");
 					    border-top: none;
 					}
 					.tabcontent a{
-						color: #033d75;
+						color: #164e63;
 					}
 					.faqwr li{
 						display: block;line-height: 40px;

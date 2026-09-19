@@ -227,7 +227,7 @@ checkInstallUrl($site_url);
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Suspend Funds Transfer</h5>
             </div>
             <div class="modal-body">
@@ -269,7 +269,7 @@ checkInstallUrl($site_url);
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Unblock Funds Transfer</h5>
             </div>
             <div class="modal-body">
@@ -312,7 +312,7 @@ checkInstallUrl($site_url);
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Suspend User Account</h5>
             </div>
             <div class="modal-body">
@@ -354,7 +354,7 @@ checkInstallUrl($site_url);
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Unblock User Account</h5>
             </div>
             <div class="modal-body">

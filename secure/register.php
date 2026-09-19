@@ -127,7 +127,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
 						<a class="navbar-brand" href="..\index-2">
 							<img style="max-width:125px;" src="..\<?php echo$logo ?>" class="d-inline-block align-top" alt="">		
-							<!--<h2><span style="color:##EC4550;">I</span><span style="color:##0E3768;">BG</span></h2>-->
+							<!--<h2><span style="color:#ca8a04;">I</span><span style="color:#164e63;">BG</span></h2>-->
 						</a>
 					   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -140,7 +140,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Banking Services <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Accounts & services</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav1">	
@@ -216,7 +216,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Borrowing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Loans & mortgages</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav2">	
@@ -305,7 +305,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Investing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Products & analysis</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav3">	
@@ -391,7 +391,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Insurance <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Property & family</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav4">	
@@ -461,7 +461,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="..\index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Life events <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Help & support</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav5">	
@@ -551,7 +551,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	    box-shadow: 0 0 23px -5px #000;
 	}
 	.banner-content h3{
-		color: #033d75;
+		color: #164e63;
 	    font-size: 30px;
 	    text-transform: uppercase;
 	    margin-bottom: 15px;
@@ -568,7 +568,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	    border-radius: 0;
 	}
 	.single-bolg.hover01 a:hover .blog-content{
-		color: #EF454D;
+		color: #ca8a04;
 		transition: all .5s ease 0s;
 	}
 	.cardWr .col-sm-8{
@@ -578,7 +578,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		padding: 40px 30px 30px;
 	}
 	.cardWr .col-sm-4{
-		background-color: #033d75;
+		background-color: #164e63;
 		color: #fff;
 	}
 	.cardWr .col-sm-4 .col-sm-12{
@@ -591,7 +591,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	.cardWr .col-sm-12 h2{
 		font-size: 22px;
 	    font-weight: bold;
-	    color: #033d75;
+	    color: #164e63;
 	    margin-bottom: 17px;
 	    margin-top: 15px;
 	    text-transform: uppercase;
@@ -614,7 +614,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	    position: relative;
 	    margin-left: 20px;
 	    margin-bottom: 30px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.card-single-wr h2::before {
 	    position: absolute;
@@ -622,7 +622,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	    top: 0;
 	    width:5px;
 	    height: 32px;
-	    background-color: #EF454D;
+	    background-color: #ca8a04;
 	    content: '';
 	}
 	.inner-card-wr h3{
@@ -630,18 +630,18 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	    font-size: 24px;
 	    margin-top: 40px;
 	    font-weight: bold;
-	    color: #EF454D;
+	    color: #ca8a04;
 	}
 	.cardWr .col-sm-12 li, .inner-card-wr li{
 		display: block;
 		margin-bottom: 14px;
 	}
 	.card-single-wr {
-	    border-top: 1px solid #033d75;
+	    border-top: 1px solid #164e63;
 	    padding: 45px 0 22px;
 	}
 	.inner-card-wr p a{
-		color: #033d75;
+		color: #164e63;
 		text-decoration: underline;
 	}
 	.firstspan{
@@ -675,7 +675,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		margin-right: 10px; 
 	}
 	i.fa.fa-check {
-	    color: #033d75;
+	    color: #164e63;
 	    font-size: 19px;
 	}
 	.inner-card-wr.lowerwr ul {
@@ -683,16 +683,16 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	}
 	i.fa.fa-download {
 	    margin-right: 10px;
-	    color: #033d75;
+	    color: #164e63;
 	}
 	.inner-card-wr.lowerwr li {
 	    font-weight: normal;
 	}
 	.inner-card-wr.lowerwr li a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.inner-card-wr.lowerwr li a:hover{
-		color: #EF454D;
+		color: #ca8a04;
 	}
 	.toggleclass{
 		color: #333;
@@ -709,7 +709,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		margin-bottom: 35px;
 	}
 	.collapse h3 a{
-		color: #033d75;
+		color: #164e63;
 	}
 	.business-wr{
 		padding:0;
@@ -754,7 +754,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					.tab {
 					    overflow: hidden;
 					    border: 1px solid #ccc;
-					    background-color: #033d75;
+					    background-color: #164e63;
 					}
 
 					/* Style the buttons inside the tab */
@@ -784,7 +784,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					}
 					/* Change background color of buttons on hover */
 					.tab button:hover {
-					    background-color: #EF454D;
+					    background-color: #ca8a04;
 					}
 					.tabcontent h3{
 						margin: 32px 0 15px;
@@ -793,7 +793,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 					/* Create an active/current tablink class */
 					.tab button.active {
-					    background-color: #EF454D;
+					    background-color: #ca8a04;
 					}
 
 					/* Style the tab content */
@@ -804,7 +804,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 					    border-top: none;
 					}
 					.tabcontent a{
-						color: #033d75;
+						color: #164e63;
 					}
 				</style>
 				<div class="tab">

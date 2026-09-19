@@ -70,10 +70,10 @@ if(empty($_GET['userToken'])){
           height: 50px;
           width: 50px;
           font-size: 25px;
-          color: #033d75;
+          color: #164e63;
           text-align: center;
-          border: 3px solid #033d75;
-          box-shadow: 4px #033d75;
+          border: 3px solid #164e63;
+          box-shadow: 4px #164e63;
           border-radius: 7px;
           font-weight: 600;
       }
@@ -146,7 +146,7 @@ if(empty($_GET['userToken'])){
        </div> 
     </form>
     <p></p>
-    <button class="btn twaBtn btn-block" style="background-color: #033d75; color:white">Update password</button>
+    <button class="btn twaBtn btn-block" style="background-color: #164e63; color:white">Update password</button>
   </center>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script type="text/javaScript">
@@ -378,7 +378,7 @@ function myFunction() {
 						</div>
 					</div>
 				</div>	
-				<div class="col-sm-12" style="height: 1px;width:100%;background-color:##EF454D;"></div>
+				<div class="col-sm-12" style="height: 1px;width:100%;background-color:#ca8a04;"></div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
 						<figure><img src="../images/bl-840.jpg" alt="slide 1" class=""></figure>

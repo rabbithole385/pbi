@@ -15,7 +15,7 @@
 }
 /* Filter controls */
 .simplefilter li, .multifilter li, .sortandshuffle li {
-    color: #033d75;
+    color: #164e63;
     cursor: pointer;
     display: inline-block;
     text-transform: uppercase;
@@ -27,7 +27,7 @@
     background-color: #fff;
 }
 .simplefilter li.active {
-    background-color: #ef454d;
+    background-color: #ca8a04;
     color: #f1f1f1;
 }
 .multifilter li {

@@ -1,6 +1,6 @@
 <?php
 /**
- * OBfixed — Railway Database Seeder
+ * Aurelia Bank & Trust — Railway Database Seeder
  * Run ONCE after deploying to Railway to initialize your database tables and default admin account.
  */
 ini_set('display_errors', '1');
@@ -73,12 +73,71 @@ if (!$conn || $conn->connect_error) {
                           VALUES (1, 'Administrator', '$adminPassHash', '$adminEmail', '+1 (800) 555-0199', 'System', 'Admin', 'active', '1000000001', 'Checking', '50000.00')");
         }
 
-        // Update site settings with clean defaults if empty
-        $chkSetting = $conn->query("SELECT id FROM setting WHERE id = 1");
-        if (!$chkSetting || $chkSetting->num_rows === 0) {
-            $conn->query("INSERT INTO setting (id, name, logo, address, email, phone, favicon, tagline, register, money, country, description) 
-                          VALUES (1, 'OBfixed Bank', 'images/logo.png', '100 Financial Center, New York, NY', '$adminEmail', '+1 (800) 555-0199', 'images/favicon.ico', 'Secure Online Banking', 1, '$', 'United States', 'Enterprise grade digital banking')");
-        }
+        // Apply clean Aurelia Bank & Trust defaults (UPSERT — works whether row exists from schema.sql or not)
+        $stockrateDefault = '<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async="">
+{
+  "symbols": [
+    { "title": "S&P 500", "proName": "OANDA:SPX500USD" },
+    { "title": "Nasdaq 100", "proName": "OANDA:NAS100USD" },
+    { "title": "EUR/USD", "proName": "FX_IDC:EURUSD" },
+    { "title": "BTC/USD", "proName": "BITSTAMP:BTCUSD" },
+    { "title": "ETH/USD", "proName": "BITSTAMP:ETHUSD" }
+  ],
+  "colorTheme": "dark",
+  "isTransparent": false,
+  "displayMode": "compact",
+  "locale": "en"
+}
+</script>';
+        $stockrate2Default = '<iframe src="//www.exchangerates.org.uk/widget/ER-LRTICKER.php?w=1400&s=1&mc=GBP&mbg=F0F0F0&bs=yes&bc=000044&f=verdana&fs=10px&fc=000044&lc=000044&lhc=FE9A00&vc=FE9A00&vcu=008000&vcd=FF0000&" height="30" width="100%" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe>';
+        $blockedMsgDefault = "Dear Customer, we have discovered suspicious activities on your account. An unauthorized IP address attempted to carry out a transaction on your account. Consequently, your account has been flagged by our risk assessment department. Kindly visit our nearest branch with your identification card and utility bill to confirm your identity before it can be reactivated. For more information, kindly contact our online customer care representatives.";
+        $imfMsgDefault = "You need to provide your IMF code before you can continue with this transaction. Please visit any of our nearest branches or contact our online customer care representative — they will help you with the appropriate IMF code for this transaction.";
+        $cotMsgDefault = "You need to provide your COT code before you can continue with this transaction. You can visit any of our nearest branches or contact our online customer care representative — they will help you with the appropriate COT code for this transaction.";
+        $cotErrorDefault = "Your account has been temporarily suspended for providing the wrong COT code. We are always committed to safeguarding your funds and therefore this is the right decision we can take for now. For more information, kindly contact our live customer care representatives.";
+        $imfErrorDefault = "Your account has been temporarily suspended for providing the wrong IMF code. We are always committed to safeguarding your funds and therefore this is the right decision we can take for now. For more information, kindly contact our live customer care representatives.";
+        $restMsgDefault = "Your account was temporarily restricted from carrying out transactions via our online banking channel. Kindly visit any of our nearest branches to resolve this issue. For more information, kindly contact our online customer care representative.";
+
+        $sr = $conn->real_escape_string($stockrateDefault);
+        $sr2 = $conn->real_escape_string($stockrate2Default);
+        $bm = $conn->real_escape_string($blockedMsgDefault);
+        $im = $conn->real_escape_string($imfMsgDefault);
+        $cm = $conn->real_escape_string($cotMsgDefault);
+        $ce = $conn->real_escape_string($cotErrorDefault);
+        $ie = $conn->real_escape_string($imfErrorDefault);
+        $rm = $conn->real_escape_string($restMsgDefault);
+
+        $conn->query("INSERT INTO setting (
+            id, name, logo, address, email, phone, favicon, tagline, register,
+            darklogo, description, seo, footerlogo, securityalert,
+            stockrate, stockrate2, stock, money, country, visa_picture, tawk,
+            shortname, blocked_msg, crypto, blocked_title, imfmsg, cotmsg,
+            icmsg, tinmsg, tacmsg, charges, wiremsg, localmsg,
+            cot_imf_counter, cot_error, imf_error, enable_cot_imf, rest_msg,
+            userstac, usersic, userstin, enable_tin_ic_tac, enable_tac, enable_ic, enable_tin,
+            bots, site_url, kyc, loan, visual_card
+        ) VALUES (
+            1, 'Aurelia Bank & Trust', 'logo.png', '2800 Aurelia Plaza, Suite 1400, Boston, MA', 'support@aureliabank.com', '+1 (800) 555-0188', 'images/favicon.png', 'Modern & Trusted Digital Banking', '1',
+            'logo.png', 'Aurelia Bank & Trust - Next-generation secure online banking platform. Federally-insured financial institution.', 'aurelia bank, online banking, secure wire transfer, digital trust', 'footerlogo.png', '',
+            '$sr', '$sr2', 1, '\$', 'United States', 'images/visa.png', '',
+            'Aurelia', '$bm', 1, 'Account Suspended', '$im', '$cm',
+            NULL, NULL, NULL, '0.3', '', '',
+            5, '$ce', '$ie', 'Yes', '$rm',
+            '3690NH', '3690NH', '3690NH', 'No', 'Yes', 'Yes', 'No',
+            1, '', 1, 1, 1
+        ) ON DUPLICATE KEY UPDATE
+            name=VALUES(name), logo=VALUES(logo), address=VALUES(address), email=VALUES(email),
+            phone=VALUES(phone), favicon=VALUES(favicon), tagline=VALUES(tagline), register=VALUES(register),
+            darklogo=VALUES(darklogo), description=VALUES(description), seo=VALUES(seo), footerlogo=VALUES(footerlogo),
+            securityalert=VALUES(securityalert), stockrate=VALUES(stockrate), stockrate2=VALUES(stockrate2),
+            stock=VALUES(stock), money=VALUES(money), country=VALUES(country), visa_picture=VALUES(visa_picture),
+            tawk=VALUES(tawk), shortname=VALUES(shortname), blocked_msg=VALUES(blocked_msg),
+            crypto=VALUES(crypto), blocked_title=VALUES(blocked_title), imfmsg=VALUES(imfmsg), cotmsg=VALUES(cotmsg),
+            charges=VALUES(charges), cot_imf_counter=VALUES(cot_imf_counter), cot_error=VALUES(cot_error),
+            imf_error=VALUES(imf_error), enable_cot_imf=VALUES(enable_cot_imf), rest_msg=VALUES(rest_msg),
+            userstac=VALUES(userstac), usersic=VALUES(usersic), userstin=VALUES(userstin),
+            enable_tin_ic_tac=VALUES(enable_tin_ic_tac), enable_tac=VALUES(enable_tac),
+            enable_ic=VALUES(enable_ic), enable_tin=VALUES(enable_tin), bots=VALUES(bots),
+            site_url=VALUES(site_url), kyc=VALUES(kyc), loan=VALUES(loan), visual_card=VALUES(visual_card)");
 
         $seeded = true;
         $message = "Database successfully initialized! Executed $executed SQL statements.";
@@ -90,7 +149,7 @@ if (!$conn || $conn->connect_error) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Railway Database Seeder — OBfixed</title>
+<title>Railway Database Seeder — Aurelia Bank & Trust</title>
 <style>
   * { box-sizing: border-box; }
   body {
@@ -150,7 +209,7 @@ if (!$conn || $conn->connect_error) {
 <body>
 <div class="container">
   <div class="badge">Railway Setup</div>
-  <h1>OBfixed Database Seeder</h1>
+  <h1>Aurelia Bank & Trust Database Seeder</h1>
   <p>Initializes all required database tables, default system settings, and creates the default super administrator account.</p>
 
   <?php if (!empty($error)): ?>

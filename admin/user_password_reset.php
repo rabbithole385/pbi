@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="card card-preview card-bordered p-0">
-                      <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                      <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                       <h5 class="text-white"><em class="icon ni ni-shield-star"></em> Update User password</h5>
                       </div>
                       <form action="" method="post">

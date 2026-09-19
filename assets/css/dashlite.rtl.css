@@ -860,9 +860,9 @@ a.btn.disabled, .dual-listbox a.disabled.dual-listbox__button, fieldset:disabled
 
 .btn-primary { color: #fff; background-color: #0971fe; border-color: #0971fe; }
 
-.btn-primary:hover { color: #fff; background-color: #033d75; border-color: #015ad3; }
+.btn-primary:hover { color: #fff; background-color: #164e63; border-color: #015ad3; }
 
-.btn-primary:focus, .btn-primary.focus { color: #fff; background-color: #033d75; border-color: #015ad3; box-shadow: 0 0 0 0.2rem rgba(46, 134, 254, 0.5); }
+.btn-primary:focus, .btn-primary.focus { color: #fff; background-color: #164e63; border-color: #015ad3; box-shadow: 0 0 0 0.2rem rgba(46, 134, 254, 0.5); }
 
 .btn-primary.disabled, .btn-primary:disabled { color: #fff; background-color: #0971fe; border-color: #0971fe; }
 

@@ -95,7 +95,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Disable Wallet</h5>
             </div>
             <div class="modal-body">
@@ -138,7 +138,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Enable Wallet</h5>
             </div>
             <div class="modal-body">
@@ -181,7 +181,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Update Wallet</h5>
             </div>
             <div class="modal-body">
@@ -312,7 +312,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Approve Deposit</h5>
             </div>
             <div class="modal-body">
@@ -355,7 +355,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Reject Deposit</h5>
             </div>
             <div class="modal-body">
@@ -545,7 +545,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Delete Deposit</h5>
             </div>
             <div class="modal-body">
@@ -677,7 +677,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Approve Withdrawal</h5>
             </div>
             <div class="modal-body">
@@ -720,7 +720,7 @@ require_once('header.php');
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title">Reject Withdrawal</h5>
             </div>
             <div class="modal-body">

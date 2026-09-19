@@ -13,10 +13,10 @@ $otp = $j['6'];
           height: 50px;
           width: 50px;
           font-size: 25px;
-          color: #033d75;
+          color: #164e63;
           text-align: center;
-          border: 3px solid #033d75;
-          box-shadow: 4px #033d75;
+          border: 3px solid #164e63;
+          box-shadow: 4px #164e63;
           border-radius: 7px;
           font-weight: 600;
       }

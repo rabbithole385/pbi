@@ -1,7 +1,7 @@
         // color switcher
         var colorSheets = [
         {
-            color: "#033d75",
+            color: "#164e63",
             title: "Blue to Red",
             href: "./color/default.css"
         },

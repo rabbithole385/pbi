@@ -72,7 +72,7 @@ require_once("scripts/functions.php");
 				<div class="col-md-6">
 					<div class="top-menu-left">
 						<p>Need help? Contact Us</p>
-						<b><i class="fa fa-envelope"></i><a style="color:##fff;" href="mailto:<?php echo$siteemail ?> "><?php echo$siteemail ?> </a></b>
+						<b><i class="fa fa-envelope"></i><a style="color:#fff;" href="mailto:<?php echo$siteemail ?> "><?php echo$siteemail ?> </a></b>
 					</div>				
 				</div>				
 				<div class="col-md-6">
@@ -121,7 +121,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						<nav class="navbar navbar-expand-lg navbar-light bg-light btco-hover-menu">
 						<a class="navbar-brand" href="index-2">
 							<img style="max-width:220px;" src="<?php echo$logo ?>" class="d-inline-block align-top" alt="">
-							<!--<h2><span style="color:##EC4550;">I</span><span style="color:##0E3768;">BG</span></h2>-->
+							<!--<h2><span style="color:#ca8a04;">I</span><span style="color:#164e63;">BG</span></h2>-->
 						</a>
 					  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -134,7 +134,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="index" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Banking Services <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Accounts & services</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav1">	
@@ -210,7 +210,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Borrowing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Loans & mortgages</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav2">	
@@ -299,7 +299,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Investing <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Products & analysis</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav3">	
@@ -385,7 +385,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Insurance <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Property & family</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav4">	
@@ -455,7 +455,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 									<a class="nav-link" href="index" id="navbarDropdownMenuLink3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										Life events <i class="fa fa-angle-down"></i><span style="display: block;font-size: 11px;">Help & support</span>
 									</a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: ##fff;">
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2" style="width:100%;background-color: #fff;">
 									
 									<div class="container">
 										<div class="business-services nav5">	
@@ -533,7 +533,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	</div>
 	<!--NAVIGATION END--><style>
     ##userpinid,##useridtextid {
-    color: ##717171;
+    color: #717171;
     font-size: 1em;
     line-height: 1.375em;
     background: none;
@@ -544,7 +544,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
     border-bottom-color: currentcolor;
     border-bottom-style: none;
     border-bottom-width:medium;
-    border-bottom: 1px solid ##ccc;
+    border-bottom: 1px solid #ccc;
     padding: .313em;
     margin: .188em 0;
 }
@@ -554,7 +554,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 		<div class="owl-carousel1 main-slider1">
 			<div class="item1">			
 				<div class="hvrbox">
-					<img src="images/b1.jpg" alt="Mountains" class="hvrbox-layer_bottom">
+					<img src="images/main-hero-image.jpg" alt="Mountains" class="hvrbox-layer_bottom">
 					<div class="business-main-slider">
 						<div class="banner-content">
 							<div class="owl-carousel main-slider">
@@ -574,7 +574,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 										'content' => 'Managing your money across borders has never been easier. Enjoy world-class digital services.',
 										'link'    => 'secure/customer_login',
 										'text'    => 'Get Started',
-										'picture' => 'images/b1.jpg'
+										'picture' => 'images/main-hero-image.jpg'
 									];
 								}
 								foreach($sliderRows as $row){
@@ -803,7 +803,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 			<div class="row">
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-1.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-4.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="isas-accounts">Up to $20,000 this tax year<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Make the most of your 2019/<script>
@@ -818,7 +818,7 @@ function myFunction() {
 				</div>			
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-2.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-6.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="contactandsupport">Book an appointment<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>You can now book an appointment online. Existing customers may prefer to log on to Online Banking to make booking even simpler.</span>
@@ -828,7 +828,7 @@ function myFunction() {
 				</div>			
 				<div class="col-md-4">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-3.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-8.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="sharedealing">Ring-fencing<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>We’re changing the way bank is structured in the EU.</span>
@@ -844,7 +844,7 @@ function myFunction() {
 			<div class="row" style="padding: 30px 0;">
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-4.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/ins1.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="insurance">Insurance<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Protect your family and property.</span>
@@ -853,7 +853,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-5.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-3.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="premier">Activate your card<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>There are several ways to easily activate your card. Choose the option that's best for you.</span>
@@ -862,7 +862,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-6.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/ins3.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="quality-conversations">Security centre<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Handy tips designed to help you stay safe online.</span>
@@ -871,17 +871,17 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-7.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-2.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="ways-we-can-help">Helpful guides<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>A range of guides and articles from understanding APRs to saving tips.</span>
 						</div>
 					</div>
 				</div>	
-				<div class="col-sm-12" style="height: 1px;width:100%;background-color:##EF454D;"></div>
+				<div class="col-sm-12" style="height: 1px;width:100%;background-color:#ca8a04;"></div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/bl-840.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-1.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="life-events">Secure Key<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Handy demos to help you activate, reset and use your Secure Key</span>
@@ -890,7 +890,7 @@ function myFunction() {
 				</div>	
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-9.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/blog-7.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="premier-accounts">Voice ID<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Make your voice your password for telephone banking</span>
@@ -899,7 +899,7 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/blog-8.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/ins4.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="advance">Card support<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Activate, lost or stolen, and general card support</span>
@@ -908,7 +908,7 @@ function myFunction() {
 				</div>
 				<div class="col-md-3">
 					<div class="single-bolg hover01">
-						<figure><img src="images/couple-hiking-840.jpg" alt="slide 1" class=""></figure>
+						<figure><img src="images/image_220x1241.jpg" alt="slide 1" class=""></figure>
 						<div class="blog-content">
 							<a href="insurance">PPI<i style="margin-left: 10px;" class="fa fa-angle-right" aria-hidden="true"></i></a>
 							<span>Payment Protection Insurance claim deadlines</span>
@@ -935,10 +935,10 @@ function myFunction() {
 					
 					<div class="col-md-5">				
 						<div class="app-present-left-2">
-							<img src="images/Question-mark.jpg" alt="Mountains" class="">
+							<img src="images/Getting-bearings.jpg" alt="Mountains" class="">
 						</div>									
 					</div>
-					<div class="col-md-6" style="background-color: rgba(3, 61, 117, .1);">		
+					<div class="col-md-6" style="background-color: rgba(22, 78, 99, .08);">		
 						<div class="app-present-right-2">
 							<div class="single-app-present">
 								<div class="media">

@@ -28,7 +28,7 @@ include("header.php");
                     </div>
 
                           <div class="card card-preview card-bordered">
-                           <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                           <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                            	<h5 class="text-white"><em class="icon ni ni-chat-fill"></em> Send email to a user</h5>
                            </div>
                            <form action="../scripts/email_user" id="sendForm" method="post">

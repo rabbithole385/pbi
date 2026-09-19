@@ -24,7 +24,7 @@ include("header.php");
                         </div>
                     </div>
                     <div class="card card-bordered card-preview">
-                     <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                     <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                        <h5 class="text-white"> <em class="icon ni ni-question"></em> Create a support ticket </h5>
                     </div>
                     <div class="card-body">
@@ -55,7 +55,7 @@ include("header.php");
               </div>
  <!-------Previous tickets---->
     <div class="card card-bordered card-preview">
-                     <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">
+                     <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">
                        <h5 class="text-white"> <em class="icon ni ni-question-alt"></em> Previous support tickets </h5>
                     </div>
                     <div class="card-body">
@@ -98,12 +98,12 @@ include("header.php");
             <a href="#" class="close text-white" data-dismiss="modal" aria-label="Close">
                 <em class="icon ni ni-cross"></em>
             </a>
-            <div class="modal-header text-white" style="background-color:#033d75; color: white;">
+            <div class="modal-header text-white" style="background-color:#164e63; color: white;">
                 <h5 class="modal-title"><?php echo$ticket?></h5>
             </div>
             <div class="modal-body bg-light">
                 <p class="card-bordered rounded-sm p-1 bg-white"><?php echo$rows['message'] ?></p>
-                <hr style="height:3px; background-color: #033d75; border-radius:3px;">
+                <hr style="height:3px; background-color: #164e63; border-radius:3px;">
                 <strong class="text-center" style="align-center text-align: center;">Discussion</strong>
                 <div id="chatSection<?php echo$id?>">
                 <?php 

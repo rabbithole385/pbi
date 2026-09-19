@@ -4,7 +4,7 @@ require_once('header.php');
 ?>
  <div class="nk-content nk-content-fluid">
     <div class="card card-bordered">
-               <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">Security Setting</div>
+               <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">Security Setting</div>
           <div class="card-inner">
         <h5 class="card-title">Reset/Change your <?php echo $sitename ?> account password*</h5>
         <hr>

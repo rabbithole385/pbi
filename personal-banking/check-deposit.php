@@ -23,7 +23,7 @@
                         </div>
                     </div>
                   <div class="card card-bordered">
-               <div class="card-header font-weight-bold text-light" style="background-color:#033d75;">Deposit a check</div>
+               <div class="card-header font-weight-bold text-light" style="background-color:#164e63;">Deposit a check</div>
           <div class="card-inner">
         <h5 class="card-title">Check Deposit tips</h5>
         <p class="card-text"><em class="icon ni ni-alert-circle text-danger" style="font-size: 18px; font-weight: 600;"></em> Choose the account to deposit the check and the check amount.</p>

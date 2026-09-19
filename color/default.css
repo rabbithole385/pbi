@@ -1,42 +1,42 @@
 
 ::selection{
-    background: #033d75;
+    background: #164e63;
 }
 ::-moz-selection{
-     background: #033d75;
+     background: #164e63;
 }
 
 /*background image*/
 .feature-color-1{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-2.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-6.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: none;
 	background-position: center;
 }
 .feature-color-2{
-	background: linear-gradient(rgba(239, 69, 77, 0.9),rgba(239, 69, 77, 0.9)),url('../images/bg-3.jpg');
+	background: linear-gradient(rgba(202, 138, 4, 0.85),rgba(202, 138, 4, 0.85)),url('../images/bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: none;
 	background-position: center;
 }
 .feature-color-3{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-4.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-1.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: none;
 	background-position: center;
 }
 .feature-color-4{
-	background: linear-gradient(rgba(239, 69, 77, 0.9),rgba(239, 69, 77, 0.9)),url('../images/bg-5.jpg');
-	background-size: cover;
+	background: linear-gradient(rgba(202, 138, 4, 0.85),rgba(202, 138, 4, 0.85)),url('../images/bg-4.jpg');
+    background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: none;
 	background-position: center;
 }
 .business-portfolio-1x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-1.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -44,77 +44,77 @@
     overflow: hidden;
 }
 .business-cta-1x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-2.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 .business-call-back-1x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-3.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-6.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 .single-features-overlay{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9));
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85));
 }
 .bussiness-counter-1x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-4.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 .business-cta-2x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-5.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 
 .business-cta-3x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-5.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-4.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 .business-app-present-1x{
-	background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url('../images/bg-6.jpg');
+	background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url('../images/bg-5.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 .single-pricing-1x{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url(../images/bg-2.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url(../images/bg-5.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .single-pricing-2x{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url(../images/bg-3.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url(../images/bg-6.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .single-pricing-3x{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url(../images/bg-4.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url(../images/bg-2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .single-pricing-4x{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url(../images/bg-5.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url(../images/bg-3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .about-us-video{
-    background: linear-gradient(rgba(3, 61, 117, 0.5),rgba(3, 61, 117, 0.5)),url(../images/blog-7.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.5),rgba(22, 78, 99, 0.5)),url(../images/insights.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: initial;   
 }
 .why-choose-us-right-2x{
-    background: linear-gradient(rgba(3, 61, 117, 0.9),rgba(3, 61, 117, 0.9)),url(../images/slider-9.jpg);
+    background: linear-gradient(rgba(22, 78, 99, 0.85),rgba(22, 78, 99, 0.85)),url(../images/family-beach-time.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: none;
@@ -148,7 +148,7 @@
 .container-width-menu,
 .bussiness-btn-larg:before,
 a.bussiness-btn-larg:before{
-     background: #033d75;
+     background: #164e63;
 }
 
 
@@ -204,7 +204,7 @@ a:hover,
 a:focus,
 a:active,
 blockquote:before {
-    color: #033d75;
+    color: #164e63;
 }
 
 /*background color*/
@@ -223,7 +223,7 @@ blockquote:before {
 .portfolio-1x  .simplefilter li,
 .portfolio-1x  .multifilter li,
 .portfolio-1x  .sortandshuffle li{
-    background-color: #033d75;
+    background-color: #164e63;
 }
 
 /*border-color*/
@@ -249,7 +249,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover{
-    border-color: #033d75;
+    border-color: #164e63;
 }
 
 
@@ -257,13 +257,13 @@ input[type="submit"]:hover{
 .title-border-left:after,
 .title-border-middle:after,
 .animatedhover{
-    border: 1px solid #033d75;
+    border: 1px solid #164e63;
 }
 
 /*bacground important*/
 .dropdown-item:focus,
 .dropdown-item:hover{
-    background: #033d75 !important;
+    background: #164e63 !important;
 }
 
 /*box shadow*/
@@ -284,7 +284,7 @@ input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus,
 textarea.form-control:focus{
-    box-shadow: 0 0px 0px #033d75 inset, 0 0 0px #033d75;
+    box-shadow: 0 0px 0px #164e63 inset, 0 0 0px #164e63;
 }
 /*********************************************************************/
 
@@ -307,7 +307,7 @@ textarea.form-control:focus{
 .single-features:hover,
 .bussiness-btn-larg,
 a.bussiness-btn-larg{
-    background: #ef454d;
+    background: #ca8a04;
 }
 
 /*color red*/
@@ -351,30 +351,30 @@ span.item-desc a:hover,
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .active>.nav-link,
 .top-menu-left i{
-    color: #ef454d;
+    color: #ca8a04;
 }
 
 /*background color*/
 .simplefilter li.active,
 .portfolio-1x  .simplefilter li.active{
-    background-color: #ef454d;
+    background-color: #ca8a04;
 }
 
 .animatedhover:hover {
-	border: 2px solid #ef454d;
+	border: 2px solid #ca8a04;
 }
 .promotion-box {
-     border-left: 3px solid #ef454d;
+     border-left: 3px solid #ca8a04;
 }
 .right-menubar ul li.active,
 .right-menubar ul li:hover{
-    border-left: 4px solid #ef454d;
+    border-left: 4px solid #ca8a04;
 }
 
 .single-address i:hover{
-    box-shadow: 0px 0px 0px 3px #ef454d;
+    box-shadow: 0px 0px 0px 3px #ca8a04;
 }
 .business-timeline .timeline li:hover .timeline-panel::before,
 .business-timeline .timeline li:hover .timeline-panel{
-	border-color:#ef454d;
+	border-color:#ca8a04;
 }

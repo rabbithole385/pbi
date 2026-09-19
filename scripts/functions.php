@@ -6,24 +6,24 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
  //WEBSITE SETTINGS
  $query = @$conn->query("SELECT * FROM setting WHERE id = 1");
  if (!$query || mysqli_num_rows($query) === 0) {
-    $sitename = "Online Banking";
-    $logo = "images/logo.png";
-    $tagline = "Modern & Secure Banking";
-    $favicon = "images/favicon.ico";
+    $sitename = "Aurelia Bank & Trust";
+    $logo = "logo.png";
+    $tagline = "Modern & Trusted Digital Banking";
+    $favicon = "images/favicon.png";
     $register = 1;
-    $sitephone = "+1 (800) 555-0199";
-    $siteemail = "support@pbigroups.com";
-    $siteaddress = "100 Financial Way, New York, NY";
-    $description = "Secure online banking platform";
-    $seo = "online banking, secure transfer";
-    $darklogo = "images/logo.png";
+    $sitephone = "+1 (800) 555-0188";
+    $siteemail = "support@aureliabank.com";
+    $siteaddress = "2800 Aurelia Plaza, Suite 1400, Boston, MA";
+    $description = "Aurelia Bank & Trust - Next-generation secure online banking platform";
+    $seo = "aurelia bank, online banking, secure wire transfer, digital trust";
+    $darklogo = "logo.png";
     $rate1 = "1.00";
     $rate2 = "1.00";
     $money = "$";
     $sitecountry = "United States";
-    $visa_picture = "";
+    $visa_picture = "images/visa.png";
     $tawk  = "";
-    $shortname = "Bank";
+    $shortname = "Aurelia";
     $blocked_msg = "";
     $blocked_title = "";
     $imfMsg = "";
@@ -37,7 +37,7 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     $transfercharge = "0";
     $localmsg = "";
     $wiremsg = "";
-    $footerlogo = "images/footerlogo.png";
+    $footerlogo = "footerlogo.png";
     $imf_cot_counter = 0;
     $cot_error = "";
     $imf_error = "";
