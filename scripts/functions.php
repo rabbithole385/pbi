@@ -8,8 +8,8 @@ if (!class_exists('PHPMailer\PHPMailer\PHPMailer') && file_exists($phpMailerDir 
     require_once($phpMailerDir . '/Exception.php');
     require_once($phpMailerDir . '/PHPMailer.php');
     require_once($phpMailerDir . '/SMTP.php');
-}
-require_once("connect.php");
+global $conn;
+require_once(__DIR__ . "/connect.php");
  //WEBSITE SETTINGS
  $query = @$conn->query("SELECT * FROM setting WHERE id = 1");
  if (!$query || mysqli_num_rows($query) === 0) {
@@ -611,7 +611,8 @@ function loggedToken() {
 
  /*========================USER DATA SETTING-----------====================*/
     function userdata(){
-    require_once("connect.php");
+    global $conn;
+    require_once(__DIR__ . "/connect.php");
     $accountid = $_SESSION["loggedUser"];
     $userquery = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountid'");
     while($userdetails = mysqli_fetch_array($userquery)){
@@ -863,28 +864,28 @@ function randomString($length = 25) {
 
 
 function filterString($string) {
-    require_once("connect.php");
+    global $conn;
+    if (!isset($conn) || !($conn instanceof mysqli)) {
+        require_once(__DIR__ . "/connect.php");
+    }
     $string = stripslashes($string);
     $string = strip_tags($string);
-    $string = htmlspecialchars($string);
-    $string = mysqli_real_escape_string($conn, $string);
+    $string = htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
+    if (isset($conn) && $conn instanceof mysqli && !@$conn->connect_error) {
+        $string = $conn->real_escape_string($string);
+    } else {
+        $string = addslashes($string);
+    }
     return $string;
 }
 
 //database Connection
 function db(){
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "amoswest";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+    global $conn;
+    if (!isset($conn) || !($conn instanceof mysqli) || @$conn->connect_error) {
+        require_once(__DIR__ . "/connect.php");
+    }
+    return $conn;
 }    
 /*
 End of database connection
@@ -958,7 +959,8 @@ function loginUser() {
          </script>";
          }
          elseif ($accountID AND $password != "") {
-         require_once("connect.php");
+         global $conn;
+         require_once(__DIR__ . "/connect.php");
          $password = md5($password);
          $querrry = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountID' and password = '$password' and id != 1");
          $fetch = mysqli_fetch_assoc($querrry);
@@ -1572,7 +1574,8 @@ if ($uploadOk == 0) {
 
 
 function getKycStatus($userid){
-    require_once('connect.php');
+    global $conn;
+    require_once(__DIR__ . '/connect.php');
     $sql = $conn->query("SELECT * FROM kyc WHERE userid = '$userid'");
     if(mysqli_num_rows($sql) < 1){
         return "0";
@@ -1583,7 +1586,8 @@ function getKycStatus($userid){
 }
 
 function getCardStatus($userid){
-    require_once('connect.php');
+    global $conn;
+    require_once(__DIR__ . '/connect.php');
     $sql = $conn->query("SELECT * FROM visual_cards WHERE userid = '$userid'");
     if(mysqli_num_rows($sql) < 1){
         return "0";
@@ -1633,7 +1637,8 @@ if($httpcode == 200 || $httpcode == 202){
 }
 
 function getIncomeValue($userid, $type){
-    require_once("connect.php");
+    global $conn;
+    require_once(__DIR__ . "/connect.php");
         $query = $conn->query("SELECT * FROM transactions WHERE userid = '$userid'");
         $total_tansaction = mysqli_num_rows($query);
 

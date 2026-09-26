@@ -1,6 +1,7 @@
 <?php
 if(isset($_POST)) {
     include("scripts/functions.php");
+    global $conn;
     $accountID = filterString($_POST["id"]);
     $password = filterString($_POST["pass"]);
     $errorMsg = 0;
