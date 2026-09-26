@@ -85,6 +85,9 @@ require_once(__DIR__ . "/connect.php");
      while($rows = mysqli_fetch_array($query)){
         $sitename = $rows["name"];
         $logo = !empty($rows["logo"]) ? $rows["logo"] : "images/logo.png";
+        if (($logo === "logo.jpg" || $logo === "images/logo.jpg") && !file_exists(dirname(__DIR__) . '/' . $logo) && file_exists(dirname(__DIR__) . '/images/logo.png')) {
+            $logo = "images/logo.png";
+        }
         $tagline = $rows["tagline"];
         $favicon = !empty($rows["favicon"]) ? $rows["favicon"] : "images/favicon.ico";
         $register = $rows["register"];
@@ -307,28 +310,14 @@ if (!function_exists('configure_pbi_mailer')) {
         $resolvedName = !empty($fromName) ? $fromName : (!empty($display_name) ? $display_name : 'PBI Group');
         $resolvedEmail = !empty($fromEmail) ? $fromEmail : ((filter_var($smtp_username, FILTER_VALIDATE_EMAIL)) ? $smtp_username : 'info@pbigroups.com');
         $resolvedPassword = get_smtp_password_for($resolvedEmail);
-
-        // Normalize the encryption string: 'ssl' -> SMTPS constant, 'tls' -> STARTTLS constant
-        $enc = strtolower(trim((string)$smtp_auth));
-        if ($enc === 'ssl' || $enc === 'smtps') {
-            $encConst = 'ssl';
-        } elseif ($enc === 'tls' || $enc === 'starttls') {
-            $encConst = 'tls';
-        } else {
-            $encConst = 'ssl'; // default for Resend
+        if (empty($resolvedPassword)) {
+            $resolvedPassword = !empty($smtp_password) ? $smtp_password : (!empty($info_password) ? $info_password : $support_password);
         }
+        $trimmedKey = trim((string)$resolvedPassword);
 
         $mail->isSMTP();
-        $mail->Host = !empty($smtp_host) ? $smtp_host : 'smtp.resend.com';
         $mail->SMTPAuth = true;
         $mail->CharSet = "UTF-8";
-        // Resend SMTP always requires literal 'resend' as username
-        $smtpUser = !empty($smtp_username) ? $smtp_username : 'resend';
-        // If the stored username is an email (not 'resend'), still keep it for other SMTP providers
-        $mail->Username = $smtpUser;
-        $mail->Password = $resolvedPassword;
-        $mail->SMTPSecure = $encConst;
-        $mail->Port = !empty($smtp_port) ? (int)$smtp_port : 465;
         $mail->Timeout = 15;
         $mail->SMTPDebug = 0;
         $mail->SMTPOptions = array(
@@ -338,13 +327,49 @@ if (!function_exists('configure_pbi_mailer')) {
                 'allow_self_signed' => true
             )
         );
+
+        if (strpos($trimmedKey, 're_') === 0 || stripos((string)$smtp_host, 'resend') !== false) {
+            // Resend SMTP
+            $mail->Host = 'smtp.resend.com';
+            $mail->Username = 'resend';
+            $mail->Password = $trimmedKey;
+            $mail->Port = (!empty($smtp_port) && (int)$smtp_port == 587) ? 587 : 465;
+            $mail->SMTPSecure = ($mail->Port == 587) ? 'tls' : 'ssl';
+        } elseif (strpos($trimmedKey, 'SG.') === 0 || stripos((string)$smtp_host, 'sendgrid') !== false) {
+            // SendGrid SMTP
+            $mail->Host = 'smtp.sendgrid.net';
+            $mail->Username = 'apikey';
+            $mail->Password = $trimmedKey;
+            $mail->Port = (!empty($smtp_port) && (int)$smtp_port == 465) ? 465 : 587;
+            $mail->SMTPSecure = ($mail->Port == 465) ? 'ssl' : 'tls';
+        } elseif (strpos($trimmedKey, 'xkeysib-') === 0 || stripos((string)$smtp_host, 'brevo') !== false || stripos((string)$smtp_host, 'sendinblue') !== false) {
+            // Brevo (Sendinblue)
+            $mail->Host = 'smtp-relay.brevo.com';
+            $mail->Username = !empty($smtp_username) ? $smtp_username : $resolvedEmail;
+            $mail->Password = $trimmedKey;
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'tls';
+        } else {
+            // Standard SMTP
+            $mail->Host = !empty($smtp_host) ? $smtp_host : 'smtp.resend.com';
+            $mail->Username = !empty($smtp_username) ? $smtp_username : 'resend';
+            $mail->Password = $trimmedKey;
+            $enc = strtolower(trim((string)$smtp_auth));
+            if ($enc === 'tls' || $enc === 'starttls' || (int)$smtp_port == 587) {
+                $mail->SMTPSecure = 'tls';
+                $mail->Port = 587;
+            } else {
+                $mail->SMTPSecure = 'ssl';
+                $mail->Port = !empty($smtp_port) ? (int)$smtp_port : 465;
+            }
+        }
         
         $mail->setFrom($resolvedEmail, $resolvedName);
         $mail->addReplyTo($resolvedEmail, $resolvedName);
     }
 }
 
-// Global bulletproof email sender: tries Resend HTTPS REST API (port 443) first if re_ key, falls back to SMTP
+// Global bulletproof email sender: tries Resend HTTPS REST API (port 443) first if re_ key, SendGrid REST if SG., falls back to SMTP
 if (!function_exists('send_pbi_mail')) {
     function send_pbi_mail($toEmail, $subject, $htmlBody, $fromEmail = null, $fromName = null, &$debugOut = null) {
         global $smtp_host, $smtp_username, $smtp_password, $smtp_port, $smtp_auth, $display_name, $info_password, $support_password;
@@ -355,9 +380,10 @@ if (!function_exists('send_pbi_mail')) {
         if (empty($resolvedPassword)) {
             $resolvedPassword = !empty($smtp_password) ? $smtp_password : (!empty($info_password) ? $info_password : $support_password);
         }
+        $trimmedKey = trim((string)$resolvedPassword);
         
-        // 1. Direct Resend HTTPS REST API (Port 443) - fastest and bypasses SMTP port blocking
-        if (strpos(trim((string)$resolvedPassword), 're_') === 0 && function_exists('curl_init')) {
+        // 1. Direct Resend HTTPS REST API (Port 443)
+        if (strpos($trimmedKey, 're_') === 0 && function_exists('curl_init')) {
             $payload = array(
                 'from' => "$resolvedName <$resolvedEmail>",
                 'to' => array($toEmail),
@@ -371,7 +397,7 @@ if (!function_exists('send_pbi_mail')) {
             curl_setopt($ch, CURLOPT_TIMEOUT, 12);
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Authorization: Bearer ' . trim((string)$resolvedPassword),
+                'Authorization: Bearer ' . $trimmedKey,
                 'Content-Type: application/json'
             ));
             $res = curl_exec($ch);
@@ -379,18 +405,71 @@ if (!function_exists('send_pbi_mail')) {
             $curlErr = curl_error($ch);
             curl_close($ch);
             
+            // If domain not verified, auto-retry with onboarding@resend.dev for seamless testing
+            if ($httpCode == 403 && stripos((string)$res, 'domain_not_verified') !== false) {
+                $payload['from'] = "$resolvedName <onboarding@resend.dev>";
+                $ch = curl_init('https://api.resend.com/emails');
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+                curl_setopt($ch, CURLOPT_TIMEOUT, 12);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Authorization: Bearer ' . $trimmedKey,
+                    'Content-Type: application/json'
+                ));
+                $res = curl_exec($ch);
+                $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                curl_close($ch);
+            }
+
             if ($httpCode >= 200 && $httpCode < 300) {
-                $debugOut = "Sent via Resend HTTPS API (HTTP $httpCode): " . $res;
+                $debugOut = "Sent via Resend HTTPS API (HTTP $httpCode)";
                 return true;
             } else {
                 $debugOut = "Resend HTTPS API returned HTTP $httpCode: $res. Curl Err: $curlErr. Falling back to SMTP...";
             }
         }
+
+        // 2. Direct SendGrid HTTPS REST API (Port 443)
+        if (strpos($trimmedKey, 'SG.') === 0 && function_exists('curl_init')) {
+            $payload = array(
+                'personalizations' => array(
+                    array('to' => array(array('email' => $toEmail)))
+                ),
+                'from' => array('email' => $resolvedEmail, 'name' => $resolvedName),
+                'subject' => $subject,
+                'content' => array(
+                    array('type' => 'text/html', 'value' => $htmlBody)
+                )
+            );
+            $ch = curl_init('https://api.sendgrid.com/v3/mail/send');
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+            curl_setopt($ch, CURLOPT_TIMEOUT, 12);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Authorization: Bearer ' . $trimmedKey,
+                'Content-Type: application/json'
+            ));
+            $res = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlErr = curl_error($ch);
+            curl_close($ch);
+
+            if ($httpCode >= 200 && $httpCode < 300) {
+                $debugOut = "Sent via SendGrid HTTPS API (HTTP $httpCode)";
+                return true;
+            } else {
+                $debugOut = "SendGrid HTTPS API returned HTTP $httpCode: $res. Curl Err: $curlErr. Falling back to SMTP...";
+            }
+        }
         
-        // 2. PHPMailer SMTP Fallback
+        // 3. PHPMailer SMTP Fallback
         try {
             $phpMailerDir = dirname(__DIR__) . '/includes';
-            if (!class_exists('PHPMailer\PHPMailer\PHPMailer') && file_exists($phpMailerDir . '/PHPMailer.php')) {
+            if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer') && file_exists($phpMailerDir . '/PHPMailer.php')) {
                 require_once($phpMailerDir . '/Exception.php');
                 require_once($phpMailerDir . '/PHPMailer.php');
                 require_once($phpMailerDir . '/SMTP.php');
@@ -411,11 +490,6 @@ if (!function_exists('send_pbi_mail')) {
         }
     }
 }
-
-
-//function authMail(){
- //   include("email/authenticator.php");
-//}
 
 //currency Converter
 function currencyConverter($amount){
@@ -1543,6 +1617,8 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
             $headerContent = emailHeader();
             $emailFooter = emailFooter();
             $mail->Body = "$headerContent $debitAlertMail $emailFooter";
+
+            if (function_exists('send_pbi_mail')) { send_pbi_mail($email, $mail->Subject, $mail->Body); } else { @$mail->send(); }
 
         }
     }

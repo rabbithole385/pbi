@@ -1,8 +1,17 @@
 <?php
     include("../scripts/functions.php");
-    require ('../includes/PHPMailer.php');
-    require ('../includes/SMTP.php');
-    require ('../includes/Exception.php');       
+    if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    $pDir = dirname(__DIR__) . '/includes';
+    if (file_exists($pDir . '/PHPMailer.php')) {
+        require_once($pDir . '/Exception.php');
+        require_once($pDir . '/PHPMailer.php');
+        require_once($pDir . '/SMTP.php');
+    } elseif (file_exists(__DIR__ . '/includes/PHPMailer.php')) {
+        require_once(__DIR__ . '/includes/Exception.php');
+        require_once(__DIR__ . '/includes/PHPMailer.php');
+        require_once(__DIR__ . '/includes/SMTP.php');
+    }
+}       
     //defining name spacess
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
@@ -18,16 +27,20 @@
     $rows = mysqli_fetch_assoc($query4);
     $phoneb = $rows['phone'];
     $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->SMTPAuth = true;
-    $mail->CharSet = "UTF-8";
-    $mail->Username = $smtp_username; 
-    $mail->Password = $smtp_password;
-    $mail->SMTPSecure = $smtp_auth;
-    $mail->Port = $smtp_port;
-    $mail->setFrom($smtp_username, $display_name);
-    $mail->addReplyTo($smtp_username, $display_name);
+    if (function_exists('configure_pbi_mailer')) {
+        configure_pbi_mailer($mail);
+    } else {
+        $mail->isSMTP();
+        $mail->Host = $smtp_host;
+        $mail->SMTPAuth = true;
+        $mail->CharSet = "UTF-8";
+        $mail->Username = $smtp_username; 
+        $mail->Password = $smtp_password;
+        $mail->SMTPSecure = $smtp_auth;
+        $mail->Port = $smtp_port;
+        $mail->setFrom($smtp_username, $display_name);
+        $mail->addReplyTo($smtp_username, $display_name);
+    }
     $mail->addAddress($emailB);
     $mail->Subject = "International transfer notification";
     $mail->isHTML(true);
@@ -572,7 +585,14 @@
  $dex = randomNumber(6);
  $msg = "Credit alert\nAcct: $accountholder($bankname)\nAmt: ".number_format($amount)." $money CR\nDesc: Cross-border($shortname/$dex)\nSender: $fullname\nLedger: ".number_format($amount)." $money available\nDate: $dated";
  $sendSms = alertNotification($sms, $api, $sender_id, $msg, $recipient);
-    if(!$mail->Send())
+    $mailSuccess = false;
+    if (function_exists('send_pbi_mail')) {
+        $mailSuccess = send_pbi_mail($email, $mail->Subject, $mail->Body);
+    }
+    if (!$mailSuccess) {
+        try { $mailSuccess = @$mail->Send(); } catch (\Throwable $e) { $mailSuccess = false; }
+    }
+    if (!$mailSuccess )
     {         
     }
     else
@@ -581,16 +601,20 @@
     }
 
     $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->SMTPAuth = true;
-    $mail->CharSet = "UTF-8";
-    $mail->Username = $smtp_username; 
-    $mail->Password = $smtp_password;
-    $mail->SMTPSecure = $smtp_auth;
-    $mail->Port = $smtp_port;
-    $mail->setFrom($smtp_username, $display_name);
-    $mail->addReplyTo($smtp_username, $display_name);
+    if (function_exists('configure_pbi_mailer')) {
+        configure_pbi_mailer($mail);
+    } else {
+        $mail->isSMTP();
+        $mail->Host = $smtp_host;
+        $mail->SMTPAuth = true;
+        $mail->CharSet = "UTF-8";
+        $mail->Username = $smtp_username; 
+        $mail->Password = $smtp_password;
+        $mail->SMTPSecure = $smtp_auth;
+        $mail->Port = $smtp_port;
+        $mail->setFrom($smtp_username, $display_name);
+        $mail->addReplyTo($smtp_username, $display_name);
+    }
     $mail->addAddress($email);
     $mail->Subject = "Debit alert Notification[$money $amount]";
     $mail->isHTML(true);
@@ -1132,7 +1156,14 @@
          $dated = date("d/m/Y, H:ia");
          $msg = "Debit alert\nAcct: ".substr($accountnumber, 0,3)."****".substr($accountnumber, 7,10)."\nAmt: $money ".number_format($amount)." DR\nDesc: $dex\nAcct Balance: $money ".number_format($accountbalance)."\nTotal: $money ".number_format($accountbalance)."\nDate: $dated";
          $sendSms = alertNotification($sms, $api, $sender_id, $msg, $recipient);
-    if(!$mail->Send())
+    $mailSuccess = false;
+    if (function_exists('send_pbi_mail')) {
+        $mailSuccess = send_pbi_mail($email, $mail->Subject, $mail->Body);
+    }
+    if (!$mailSuccess) {
+        try { $mailSuccess = @$mail->Send(); } catch (\Throwable $e) { $mailSuccess = false; }
+    }
+    if (!$mailSuccess )
     {
      echo "<script>window.location.href='../personal-banking/transaction_completed?transferToken=".$_SESSION['transaction_session']."'; </script>";
             unset($_SESSION["recipientDetailsB"]);

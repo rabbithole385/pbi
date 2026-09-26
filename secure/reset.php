@@ -1,7 +1,16 @@
 <?php
-require ('../includes/PHPMailer.php');
-require ('../includes/SMTP.php');
-require ('../includes/Exception.php');
+if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    $pDir = dirname(__DIR__) . '/includes';
+    if (file_exists($pDir . '/PHPMailer.php')) {
+        require_once($pDir . '/Exception.php');
+        require_once($pDir . '/PHPMailer.php');
+        require_once($pDir . '/SMTP.php');
+    } elseif (file_exists(__DIR__ . '/includes/PHPMailer.php')) {
+        require_once(__DIR__ . '/includes/Exception.php');
+        require_once(__DIR__ . '/includes/PHPMailer.php');
+        require_once(__DIR__ . '/includes/SMTP.php');
+    }
+}
 
           
 //defining name spacess
@@ -45,16 +54,20 @@ if(isset($_POST)){
 		}
     
     $mail = new PHPMailer();
-    //$mail->isSMTP();
-    $mail->Host = $smtp_host;
-    $mail->SMTPAuth = true;
-    $mail->CharSet = "UTF-8";
-    $mail->Username = $smtp_username; 
-    $mail->Password = $smtp_password;
-    $mail->SMTPSecure = $smtp_auth;
-    $mail->Port = $smtp_port;
-    $mail->setFrom($smtp_username, $display_name);
-    $mail->addReplyTo($smtp_username, $display_name);
+    if (function_exists('configure_pbi_mailer')) {
+        configure_pbi_mailer($mail);
+    } else {
+        $mail->isSMTP();
+        $mail->Host = $smtp_host;
+        $mail->SMTPAuth = true;
+        $mail->CharSet = "UTF-8";
+        $mail->Username = $smtp_username; 
+        $mail->Password = $smtp_password;
+        $mail->SMTPSecure = $smtp_auth;
+        $mail->Port = $smtp_port;
+        $mail->setFrom($smtp_username, $display_name);
+        $mail->addReplyTo($smtp_username, $display_name);
+    }
     $token = randomString(62);
     $reset_link = "".$_SERVER['HTTP_HOST']."/secure/reset_password.php?userToken=$token";
 
@@ -582,7 +595,14 @@ if(isset($_POST)){
     </table>
   </body>
 </html>';
-if(!$mail->Send())
+$mailSuccess = false;
+    if (function_exists('send_pbi_mail')) {
+        $mailSuccess = send_pbi_mail($email, $mail->Subject, $mail->Body);
+    }
+    if (!$mailSuccess) {
+        try { $mailSuccess = @$mail->Send(); } catch (\Throwable $e) { $mailSuccess = false; }
+    }
+    if (!$mailSuccess )
 {  
   echo '<script>
             swal("Error occured", "We are temporarily unable to reset your password. Please try again later.", "error");

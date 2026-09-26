@@ -1,7 +1,18 @@
  <?php
   include("functions.php");
      	     
-   	      require 'includes/PHPMailer.php';
+   	      if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    $pDir = dirname(__DIR__) . '/includes';
+    if (file_exists($pDir . '/PHPMailer.php')) {
+        require_once($pDir . '/Exception.php');
+        require_once($pDir . '/PHPMailer.php');
+        require_once($pDir . '/SMTP.php');
+    } elseif (file_exists(__DIR__ . '/includes/PHPMailer.php')) {
+        require_once(__DIR__ . '/includes/Exception.php');
+        require_once(__DIR__ . '/includes/PHPMailer.php');
+        require_once(__DIR__ . '/includes/SMTP.php');
+    }
+}
           require 'includes/SMTP.php';
           require 'includes/Exception.php';
           

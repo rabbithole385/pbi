@@ -242,7 +242,7 @@ if (!$trx) {
                 <!-- Receipt Head -->
                 <div class="receipt-head">
                     <div class="receipt-brand">
-                        <img src="../<?php echo !empty($darklogo) ? $darklogo : (!empty($logo) ? $logo : 'images/logo.png'); ?>" alt="<?php echo htmlspecialchars($sitename); ?>">
+                        <img src="../<?php echo !empty($darklogo) ? $darklogo : (!empty($logo) ? $logo : 'images/logo.png'); ?>" onerror="this.onerror=null; this.src='../images/logo.png';" alt="<?php echo htmlspecialchars($sitename); ?>">
                     </div>
                     <div class="receipt-title-block text-right">
                         <h3>TRANSACTION RECEIPT</h3>

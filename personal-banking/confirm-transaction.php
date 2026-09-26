@@ -31,7 +31,7 @@ include("header.php");
                                             </div>
                                         </div><!-- .buysell-field -->
                                         <div class="buysell-field form-action">
-                                            <button type="submit" class="btn btn-lg btn-block btn-primary verifyBtn" id="btn">Verify OTP</a>
+                                            <button type="submit" class="btn btn-lg btn-block btn-primary verifyBtn" id="btn">Verify OTP</button>
                                         </div><!-- .buysell-field -->
                                         <div class="form-note text-base text-center">Note: our transfer fee is included.</div>
                                     </form><!-- .buysell-form -->

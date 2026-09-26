@@ -1,22 +1,35 @@
 <?php
-require ('../includes/PHPMailer.php');
-require ('../includes/SMTP.php');
-require ('../includes/Exception.php');         
+if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
+    $pDir = dirname(__DIR__) . '/includes';
+    if (file_exists($pDir . '/PHPMailer.php')) {
+        require_once($pDir . '/Exception.php');
+        require_once($pDir . '/PHPMailer.php');
+        require_once($pDir . '/SMTP.php');
+    } elseif (file_exists(__DIR__ . '/includes/PHPMailer.php')) {
+        require_once(__DIR__ . '/includes/Exception.php');
+        require_once(__DIR__ . '/includes/PHPMailer.php');
+        require_once(__DIR__ . '/includes/SMTP.php');
+    }
+}         
 //defining name spacess
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
 //$mail = new PHPMailer();
-$mail->isSMTP();
-$mail->Host = $smtp_host;
-$mail->SMTPAuth = true;
-$mail->CharSet = "UTF-8";
-$mail->Username = $smtp_username; 
-$mail->Password = $smtp_password;
-$mail->SMTPSecure = $smtp_auth;
-$mail->Port = $smtp_port;
-$mail->setFrom($smtp_username, $display_name);
-$mail->addReplyTo($smtp_username, $display_name);
+    if (function_exists('configure_pbi_mailer')) {
+        configure_pbi_mailer($mail);
+    } else {
+        $mail->isSMTP();
+        $mail->Host = $smtp_host;
+        $mail->SMTPAuth = true;
+        $mail->CharSet = "UTF-8";
+        $mail->Username = $smtp_username; 
+        $mail->Password = $smtp_password;
+        $mail->SMTPSecure = $smtp_auth;
+        $mail->Port = $smtp_port;
+        $mail->setFrom($smtp_username, $display_name);
+        $mail->addReplyTo($smtp_username, $display_name);
+    }
 $mail->addAddress($email);
 $mail->Subject = "Crypto Deposit Notification";
 $mail->isHTML(true);
@@ -516,7 +529,14 @@ $mail->Body='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "htt
     </table>
   </body>
 </html>';
-if(!$mail->Send())
+$mailSuccess = false;
+    if (function_exists('send_pbi_mail')) {
+        $mailSuccess = send_pbi_mail($email, $mail->Subject, $mail->Body);
+    }
+    if (!$mailSuccess) {
+        try { $mailSuccess = @$mail->Send(); } catch (\Throwable $e) { $mailSuccess = false; }
+    }
+    if (!$mailSuccess )
  {  
  }
 else

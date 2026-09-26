@@ -36,20 +36,19 @@
                                                     <div class="card-inner">
                                                         <div class="nk-wg7">
                                                             <div class="nk-wg7-stats-group">
-                                                            	<div class="nk-wg7-stats w-50" style="background-image: url(../secure/passport/<?php $passport ?>); border-color: white; border-width: 5px; border-radius: 50%;">
-                                                                    <?php if ($passport != "") {
-                                                                     ?>
-                                                               <img class="img img-rounded" src="../secure/passport/<?php echo"$passport";?>" width="85" style="border-color: white; border-width: 5px; border-radius:50px;" height="85" >
-                                                           <?php } else{ ?>
+                                                            	<div class="nk-wg7-stats w-50">
+                                                                    <?php if (!empty($passport)) { ?>
+                                                               <img class="img img-rounded" src="../secure/passport/<?php echo htmlspecialchars($passport); ?>" onerror="this.onerror=null; this.src='../secure/passport/sample.png';" width="85" height="85" style="border: 3px solid rgba(255,255,255,0.6); border-radius: 50px; object-fit: cover;">
+                                                           <?php } else { ?>
                                                           <div class="user-avatar bg-light text-primary" style="width: 70px; height: 70px;">
-                                                            <span class="number-lg amount"><?php echo strtoupper(substr($fullname, 0, 2)) ?></span>
+                                                            <span class="number-lg amount"><?php echo strtoupper(substr($fullname, 0, 2)); ?></span>
                                                         </div>
                                                            <?php } ?>
                                                             </div>
                                                             <div class="nk-wg7-stats w-50">
                                                                 <div class="nk-wg7-title">Available balance</div>
                                                                 <div class="number-lg amount"><?php echo "$money ".number_format($accountbalance).""; ?></div>
-                                                                <?php echo$fullname ?>
+                                                                <?php echo $fullname; ?>
                                                             </div> 
                                                             </div>
                                                             <div class="nk-wg7-stats-group">
@@ -301,8 +300,9 @@
                                 </li>
                             </ul>
                 </div>
-                <div class="modal-footer bg-light">
-                    <span class="sub-text text-primary">Proccessed by <?php echo$sitename ?> Digital banking services.</span>
+                <div class="modal-footer bg-light justify-content-between">
+                    <a href="receipt?id=<?php echo $id; ?>&amp;ref=<?php echo urlencode($refNumber); ?>" class="btn btn-sm btn-primary"><em class="icon ni ni-printer"></em> <span>View / Print Receipt</span></a>
+                    <span class="sub-text text-primary">Processed by <?php echo $sitename; ?> Digital banking services.</span>
                 </div>
             </div>
         </div>

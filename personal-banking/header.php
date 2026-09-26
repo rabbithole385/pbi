@@ -191,6 +191,12 @@ color:#000;
                                         </a>
                                     </li>
                                     <li class="nk-menu-item">
+                                        <a href="receipt" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-printer"></em></span>
+                                            <span class="nk-menu-text">Invoices &amp; Receipts</span>
+                                        </a>
+                                    </li>
+                                    <li class="nk-menu-item">
                                         <a href="transfer" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-wallet-out"></em></span>
                                             <span class="nk-menu-text">Transfer</span>

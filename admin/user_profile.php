@@ -159,7 +159,7 @@ include("header.php"); ?>
                                                         <div class="user-avatar bg-primary">
                                                         	<?php 
                                                             if($passport != ""){
-                                                            	echo "<img src='../secure/passport/$passport'>";
+                                                            	echo "<img src='../secure/passport/$passport' onerror=\"this.onerror=null; this.src='../secure/passport/sample.png';\">";
                                                             }
                                                             else{
                                                         	?>

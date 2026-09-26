@@ -130,7 +130,7 @@ if ($uploadOk == 0) {
               }
               ?>    
               <div class="container p-2">
-              	<img src="<?php echo$link ?>" class="round" height="200" width="150" id="output_image">
+              	<img src="<?php echo$link ?>" onerror="this.onerror=null; this.src='../secure/passport/sample.png';" class="round" height="200" width="150" id="output_image">
            </div>
             <div class="form-control-wrap">
              <div class="custom-file">

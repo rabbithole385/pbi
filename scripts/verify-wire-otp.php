@@ -1,6 +1,8 @@
 <?php
     include("functions.php");
     include("userdata.php");
+global $conn;
+include_once(__DIR__ . '/connect.php');
     if (isset($_POST)) {
         sleep(3);
     $otpB  = $_POST["otp"];
