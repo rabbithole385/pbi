@@ -1,6 +1,7 @@
 <?php
 include("functions.php");
-include("connect.php");
+global $conn;
+include_once(__DIR__ . '/connect.php');
 include("userdata.php");
 /*echo "
 <script>

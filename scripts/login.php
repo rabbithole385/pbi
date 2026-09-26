@@ -1,11 +1,11 @@
 <?php
 if(isset($_POST)) {
-    include("scripts/functions.php");
+    include(__DIR__ . "/functions.php");
     $accountID = filterString($_POST["id"]);
     $password = filterString($_POST["pass"]);
     $errorMsg = 0;
-    if ($accountID != "") {
-         $errorMsg =1;
+    if (empty($accountID) || empty($password)) {
+         $errorMsg = 1;
          echo"<script>
          toastr.error('All fields are required', 'Empty field(s)', {'progressBar': true});
          document.getElementById('pass').style.borderColor='red';
@@ -14,8 +14,9 @@ if(isset($_POST)) {
          document.getElementById('id').style.color='red';
          </script>";
          }
-         elseif ($accountID AND $password != "") {
-         include("connect.php");
+         else {
+         global $conn;
+include_once(__DIR__ . '/connect.php');
          $password = md5($password);
          $querrry = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountID' and password = '$password' and id != 1");
          $fetch = mysqli_fetch_assoc($querrry);

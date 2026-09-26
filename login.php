@@ -40,7 +40,7 @@ if(isset($_POST)) {
     //CHECK IS BOTH FIELDS IS NOT EMPTY
     $password = md5($password);
     if($accountID AND $password !=""){
-    $query = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountID' and password = '$password'") or die(mysqli_query());
+    $query = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountID' and password = '$password'");
     //CHECK IF CREDENTIALS ARE ACCURATE
     if(mysqli_num_rows($query) == 0){
         sleep(3);

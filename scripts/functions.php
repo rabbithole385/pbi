@@ -8,6 +8,7 @@ if (!class_exists('PHPMailer\PHPMailer\PHPMailer') && file_exists($phpMailerDir 
     require_once($phpMailerDir . '/Exception.php');
     require_once($phpMailerDir . '/PHPMailer.php');
     require_once($phpMailerDir . '/SMTP.php');
+}
 global $conn;
 require_once(__DIR__ . "/connect.php");
  //WEBSITE SETTINGS
@@ -185,31 +186,39 @@ require_once(__DIR__ . "/connect.php");
 */
 
 //ADMIN DETAILS
+$adfirstname = $admiddlename = $adlastname = $ademail = $adaccounttype = '';
+$adpassport = $addayOFBirth = $adaddress = $adstate = $adcountry = $adphone = '';
+$adsecretCode = $adzipcode = $adincome = $adoccupation = $adnickname = '';
+$adsecurityQuestion = $adanswer = '';
+$adaccountbalance = 0.00;
+$aduserid = 0;
 
- $adminquery = $conn->query("SELECT * FROM users WHERE id = 1");
-
- while($roo = mysqli_fetch_array($adminquery)){
-    $adfirstname = $roo["firstname"];
-    $admiddlename = $roo["middlename"];
-    $adlastname = $roo["lastname"];
-    $ademail = $roo["email"];
-    $adaccounttype = $roo["accounttype"];
-    $adpassport = $roo["passport"];
-    $addayOFBirth = $roo["dayOFBirth"];
-    $adaccountbalance = $roo["accountbalance"];
-    $adaddress = $roo["address"];
-    $adstate = $roo["state"];
-    $adcountry = $roo["country"];
-    $adphone = $roo["phone"];
-    $adsecretCode = $roo["secretCode"];
-    $adzipcode = $roo["zipcode"];
-    $adincome = $roo["income"];
-    $adoccupation = $roo["occupation"];
-    $adnickname = $roo["nickname"];
-    $adsecurityQuestion = $roo["securityquestion"];
-    $adanswer = $roo["answer"];
-    $aduserid = $roo["id"];
-
+if (isset($conn) && $conn) {
+    $adminquery = @$conn->query("SELECT * FROM users WHERE id = 1");
+    if ($adminquery && mysqli_num_rows($adminquery) > 0) {
+        while($roo = mysqli_fetch_array($adminquery)){
+            $adfirstname = $roo["firstname"];
+            $admiddlename = $roo["middlename"];
+            $adlastname = $roo["lastname"];
+            $ademail = $roo["email"];
+            $adaccounttype = $roo["accounttype"];
+            $adpassport = $roo["passport"];
+            $addayOFBirth = $roo["dayOFBirth"];
+            $adaccountbalance = $roo["accountbalance"];
+            $adaddress = $roo["address"];
+            $adstate = $roo["state"];
+            $adcountry = $roo["country"];
+            $adphone = $roo["phone"];
+            $adsecretCode = $roo["secretCode"];
+            $adzipcode = $roo["zipcode"];
+            $adincome = $roo["income"];
+            $adoccupation = $roo["occupation"];
+            $adnickname = $roo["nickname"];
+            $adsecurityQuestion = $roo["securityquestion"];
+            $adanswer = $roo["answer"];
+            $aduserid = $roo["id"];
+        }
+    }
 }
 
 //SMTP SETTINGS
@@ -908,6 +917,7 @@ function checkAccess(){
 function checkAdmin(){
     if(empty($_SESSION['userAdmin']) || empty($_SESSION['loggedAdmin'])){
         echo "<script>window.location.href='login';</script>";
+        exit;
     }
     
 }
@@ -948,8 +958,8 @@ function borderError($color, $id){
 
 //User Account Login
 function loginUser() {
-    $accountID = filterString($_POST["id"]);
-    $password = filterString($_POST["password"]);
+    $accountID = filterString(isset($_POST["accountID"]) ? $_POST["accountID"] : (isset($_POST["id"]) ? $_POST["id"] : ""));
+    $password = filterString(isset($_POST["password"]) ? $_POST["password"] : (isset($_POST["pass"]) ? $_POST["pass"] : ""));
     $errorMsg = 0;
 
     if (empty($accountID) || empty($password)) {
@@ -1146,6 +1156,7 @@ function loginUser() {
             ";
         }
 
+        global $conn;
         db();
         $query = $conn->query("SELECT * FROM users WHERE email = '$email'");
         $numRows = mysqli_num_rows($query);
@@ -1204,7 +1215,7 @@ function loginUser() {
             ";
         }
 
-        if (strlen($password <= 5)) {
+        if (strlen($password) <= 5) {
             $erroSignUpThree = 1;
             echo "
              <script>
@@ -1295,7 +1306,8 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
      }
     }
 
-    function  enrollNewUSerStepFive(){
+    function enrollNewUSerStepFive(){
+        global $conn;
             $firstname =   $_SESSION["firstname"];
             $middlename =  $_SESSION["middlename"];
             $lastname =  $_SESSION["lastname"];
@@ -1326,11 +1338,12 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
             db();
             $accountnumber = randomNumber(10);
             $dateCreated = date("d M Y, H:i");
-            $query = $conn->query("INSERT INTO users(firstname, middlename, lastname, title, gender, nickname, dayOFBirth, monthOfBirth, yearOfBirth , maidensname, email, phone, ssn, country, state, zipcode, address, occupation, income, nextOfKIn, accounttype, securityquestion, answer, secretCode, password, passport, accountnumber, datecreated  )VALUES('$firstname', '$middlename', '$lastname', '$title', '$gender',$nickname '$dayOFBirth', '$monthOfBirth',
+            $query = $conn->query("INSERT INTO users(firstname, middlename, lastname, title, gender, nickname, dayOFBirth, monthOfBirth, yearOfBirth , maidensname, email, phone, ssn, country, state, zipcode, address, occupation, income, nextOfKIn, accounttype, securityquestion, answer, secretCode, password, passport, accountnumber, datecreated  )VALUES('$firstname', '$middlename', '$lastname', '$title', '$gender', '$nickname', '$dayOFBirth', '$monthOfBirth',
                 '$yearOfBirth', '$maidenName', '$email', '$phone', '$ssn', '$country', '$state', '$zipcode', '$address', '$occupation', '$income', '$nextOfKIn', '$accounttype', '$securityQuestion', '$answer', '$secretCode', '$password', '$passport', '$accountnumber', '$dateCreated')");
      }
 
         function contactForm(){
+        global $conn;
         $email = filterString($_POST["email"]);
         $name = filterString($_POST["name"]);
         $subject = filterString($_POST["subject"]);
@@ -1507,7 +1520,7 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 
 
         if ($otpCode == $_SESSION["otp"]) {
-             
+            global $conn;
             db();
             userdata();
             $ref = randomString(9);
@@ -1516,8 +1529,9 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
             $refNumber = filterString("$dc/$ref-$dd");
             $otp = $_SESSION["otp"];
             $dated = date("d M Y, g:i a");
-            $acctBal = ($accountbalance - ($amount));
-            $queryForTransfer = $conn->query("INSERT INTO transactions (scope, type, bankname, routineNumber, swiftcode, accountnumber, accountholder, otp, refNumber, dated, amount, accountbalance, userid) VALUES ('Local Transfer', 'Debit', '$bankname', '$routineNumber', '$swiftcode', '$accountnumberB', '$userid')");
+            $transferAmount = $_SESSION["transferAmount"];
+            $acctBal = ($accountbalance - ($transferAmount));
+            $queryForTransfer = $conn->query("INSERT INTO transactions (scope, type, bankname, routineNumber, swiftcode, accountnumber, accountholder, otp, refNumber, dated, amount, accountbalance, userid) VALUES ('Local Transfer', 'Debit', '$bankname', '$routineNumber', '$swiftcode', '$accountnumberB', '$accountholder', '$otp', '$refNumber', '$dated', '$transferAmount', '$acctBal', '$userid')");
             $queryForBalUpdate = $conn->query("UPDATE users SET accountbalance = '$acctBal' WHERE id = '$userid'");
             //Notifying the user that his/her account have been debited Through Mail==
 
@@ -1531,10 +1545,13 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
             $mail->Body = "$headerContent $debitAlertMail $emailFooter";
 
         }
+    }
 
 
 /*==============USER PASSPORT UPLOAD====================*/
 function userPassportUpload(){
+    global $conn;
+    db();
 $target_dir = "passport/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -1568,8 +1585,7 @@ if ($uploadOk == 0) {
   } else {
     echo "<div class='alert alert-danger'>Sorry, there was an error uploading your passport.</div>";
   }
-}
-}    
+}    
 }
 
 

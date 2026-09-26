@@ -16,7 +16,8 @@ if (isset($_POST)) {
 			}
 
 			else{
-				include("connect.php");
+				global $conn;
+include_once(__DIR__ . '/connect.php');
 				$query = $conn->query("SELECT * FROM users WHERE accountnumber = '$userid'");
 				$fetch = mysqli_fetch_assoc($query);
 				if ($secretCode != $fetch["secretCode"]) {

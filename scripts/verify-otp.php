@@ -41,7 +41,8 @@
             $accountholder = $_SESSION["accountholder"];
             $description = $_SESSION['description'];
             $amount = $_SESSION['amount'];
-            include("connect.php");
+            global $conn;
+include_once(__DIR__ . '/connect.php');
             include("userdata.php");
             $ref = randomString(9);
             $dd = date("my");

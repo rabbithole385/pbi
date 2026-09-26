@@ -1,5 +1,6 @@
     <?php
-    include("connect.php");
+    global $conn;
+include_once(__DIR__ . '/connect.php');
     $accountid = $_SESSION["loggedUser"];
     $userquery = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountid'");
     while($userdetails = mysqli_fetch_array($userquery)){

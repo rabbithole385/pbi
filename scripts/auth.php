@@ -16,6 +16,14 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\Exception;
     use PHPMailer\PHPMailer\SMTP;  
+
+if (!isset($_GET['action'])) {
+    $_GET['action'] = '';
+}
+if (!isset($_POST['action'])) {
+    $_POST['action'] = '';
+}
+
 //DELETE TRANSACTION
 
 if($_GET['action']=="delete_trx"){
