@@ -203,7 +203,15 @@ if ($_GET['action'] == "confirm_crypto") {
         	$_SESSION['deposit_crypto'] = 1;*/
         	
             $query2 = $conn->query("INSERT INTO crypto_deposits (coin, address, datecreated, userid, status, amount)VALUES('$coin', '$address', '$dateCreated', '$userid', 'pending', '$amount')");
-           include('../email/crypto-deposit-mail.php');
+            try {
+                if (file_exists(__DIR__ . '/../email/crypto-deposit-mail.php')) {
+                    include(__DIR__ . '/../email/crypto-deposit-mail.php');
+                } elseif (file_exists(dirname(__DIR__) . '/email/crypto-deposit-mail.php')) {
+                    include(dirname(__DIR__) . '/email/crypto-deposit-mail.php');
+                }
+            } catch (\Throwable $eDepositMail) {
+                error_log("Deposit mail error: " . $eDepositMail->getMessage());
+            }
            /* $query3 = $conn->query("SELECT * FROM wallets WHERE userid = '$userid' and coin = '$coin'");
             if(mysqli_num_rows($query3) < 1){
 
@@ -287,7 +295,15 @@ if ($_GET['action'] == "confirm_crypto") {
     $query1 = $conn->query("INSERT INTO crypto_withdrawals(userid, amount, coin, datecreated, wallet, status)VALUES('$userid', '$amount', '$coin', '$dateCreated', '$destination', 'pending')");
     $newBal = ($bal - cryptoConverter2B($amount, $coin));
     $query2 = $conn->query("UPDATE wallets SET balance = '$newBal' WHERE userid = '$userid' and coin = '$coin'");
-    require_once('../email/crypto-withdrawal-request.php');
+    try {
+        if (file_exists(__DIR__ . '/../email/crypto-withdrawal-request.php')) {
+            require_once(__DIR__ . '/../email/crypto-withdrawal-request.php');
+        } elseif (file_exists(dirname(__DIR__) . '/email/crypto-withdrawal-request.php')) {
+            require_once(dirname(__DIR__) . '/email/crypto-withdrawal-request.php');
+        }
+    } catch (\Throwable $eWithdrawMail) {
+        error_log("Withdrawal mail error: " . $eWithdrawMail->getMessage());
+    }
       echo "<script>
       Swal.fire({
       icon: 'success',

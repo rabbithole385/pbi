@@ -305,7 +305,22 @@ if (!function_exists('get_smtp_password_for')) {
 }
 
 if (!function_exists('configure_pbi_mailer')) {
-    function configure_pbi_mailer($mail, $fromEmail = null, $fromName = null) {
+    function configure_pbi_mailer(&$mail, $fromEmail = null, $fromName = null) {
+        if (!is_object($mail)) {
+            if (!class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+                $pDir = dirname(__DIR__) . '/includes';
+                if (file_exists($pDir . '/PHPMailer.php')) {
+                    require_once($pDir . '/Exception.php');
+                    require_once($pDir . '/PHPMailer.php');
+                    require_once($pDir . '/SMTP.php');
+                }
+            }
+            if (class_exists('PHPMailer\PHPMailer\PHPMailer')) {
+                $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+            } else {
+                return false;
+            }
+        }
         global $smtp_host, $smtp_username, $smtp_password, $smtp_port, $smtp_auth, $display_name, $info_password, $support_password;
         $resolvedName = !empty($fromName) ? $fromName : (!empty($display_name) ? $display_name : 'PBI Group');
         $resolvedEmail = !empty($fromEmail) ? $fromEmail : ((filter_var($smtp_username, FILTER_VALIDATE_EMAIL)) ? $smtp_username : 'info@pbigroups.com');

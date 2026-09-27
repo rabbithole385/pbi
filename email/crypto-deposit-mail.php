@@ -15,10 +15,10 @@ if (!class_exists('PHPMailer\\PHPMailer\\PHPMailer')) {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
-//$mail = new PHPMailer();
-    if (function_exists('configure_pbi_mailer')) {
-        configure_pbi_mailer($mail);
-    } else {
+$mail = new PHPMailer();
+if (function_exists('configure_pbi_mailer')) {
+    configure_pbi_mailer($mail);
+} else {
         $mail->isSMTP();
         $mail->Host = $smtp_host;
         $mail->SMTPAuth = true;
