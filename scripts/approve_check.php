@@ -570,35 +570,24 @@
     </table>
   </body>
 </html>';
-    if(!$mail->Send())
-    {
-    
+    $mailSuccess = false;
+    if (function_exists('send_pbi_mail')) {
+        $mailSuccess = send_pbi_mail($email ?? '', $mail->Subject, $mail->Body);
+    }
+    if (!$mailSuccess) {
+        try { @$mail->Send(); } catch (\Throwable $ex) { /* silent */ }
+    }
+
     $query = $conn->query("UPDATE transactions SET status = 1 WHERE refNumber = '$refNumber'");
     $sql = $conn->query("UPDATE users SET accountbalance = '$bal' WHERE id = '$id'");
     $queryyy = $conn->query("UPDATE check_deposit SET status = 1 WHERE ref = '$refNumber'");
-     echo "
-           <script> Swal.fire('Check Deposit has been approved!', 'Transaction details have been updated', 'success');
-           </script>
-      ";
-      sleep(3);
-      echo"<script>window.history.go(-1);</script>";
-      echo mysqli_error($conn);       
-    }
-    else
-    {
-    
-    
-    $query = $conn->query("UPDATE transactions SET status = 1 WHERE refNumber = '$refNumber'");
-    $sql = $conn->query("UPDATE users SET accountbalance = '$bal' WHERE id = '$id'");
-    $queryyy = $conn->query("UPDATE check_deposit SET status = 1 WHERE ref = '$refNumber'");
-     echo "
-           <script> Swal.fire('Check Deposit has been approved!', 'Transaction details have been updated', 'success');
-           </script>
-      ";
-      sleep(3);
-      echo"<script>window.history.go(-1);</script>";
-        echo mysqli_error($conn);         
-    }
+    echo "
+        <script> Swal.fire('Check Deposit has been approved!', 'Transaction details have been updated', 'success');
+        </script>
+    ";
+    sleep(3);
+    echo"<script>window.history.go(-1);</script>";
+    echo mysqli_error($conn);
 
     
 

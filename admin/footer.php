@@ -28,7 +28,6 @@
     <script src="../assets/js/scripts.js?ver=2.4.0"></script>
     <script src="../assets/js/charts/chart-crypto.js?ver=2.4.0"></script>
     <script src="../js/sweetalert.js"></script>
-   <script src="../assets/js/jquery.min.js"></script>
    <script src="../assets/js/custom.js"></script>
    <script src="../js/toastr.js"></script>
    

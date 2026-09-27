@@ -534,7 +534,13 @@ $mail->Body='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "htt
     </table>
   </body>
 </html>';
-try { $mail->Send(); } catch (\Throwable $eM) {}
+$mailSuccess = false;
+if (function_exists('send_pbi_mail')) {
+    $mailSuccess = send_pbi_mail($email, $mail->Subject, $mail->Body);
+}
+if (!$mailSuccess) {
+    try { @$mail->Send(); } catch (\Throwable $eM) {}
+}
 
 
 

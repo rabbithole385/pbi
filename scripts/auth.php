@@ -203,7 +203,7 @@ if ($_GET['action'] == "confirm_crypto") {
         	$_SESSION['deposit_crypto'] = 1;*/
         	
             $query2 = $conn->query("INSERT INTO crypto_deposits (coin, address, datecreated, userid, status, amount)VALUES('$coin', '$address', '$dateCreated', '$userid', 'pending', '$amount')");
-           // include('../email/crypto-deposit-mail.php');
+           include('../email/crypto-deposit-mail.php');
            /* $query3 = $conn->query("SELECT * FROM wallets WHERE userid = '$userid' and coin = '$coin'");
             if(mysqli_num_rows($query3) < 1){
 
