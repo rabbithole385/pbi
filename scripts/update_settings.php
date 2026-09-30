@@ -18,29 +18,27 @@ if (isset($_POST)) {
 	$kyc = filterString($_POST['kyc']);
 	$visual_card = filterString($_POST['visual_card']);
 
-	if (filter_var($site_url, FILTER_VALIDATE_URL)) {
-    } else {
-    feedback("sweet", "error", "Invalid base URL", "Error");
-    borderError("red", "site_url");
-    die();
-     }
+	if (!empty($site_url)) {
+		if (!preg_match('~^https?://~i', $site_url)) {
+			$site_url = 'https://' . $site_url;
+		}
+	}
 
-	 $query = $conn->query("UPDATE setting SET name = '$sitename', shortname = '$shortname', email = '$email', phone = '$phone', description = '$description', address = '$address', imfmsg = '$imf', cotmsg = '$cot', cot_imf_counter = '$imf_cot_counter',
-	 cot_error = '$cot_error', imf_error = '$imf_error', blocked_msg = '$blocked_msg',
-	 enable_tin_ic_tac = '$enable_tin_ic_tac', enable_ic = '$enable_ic', enable_tin = '$enable_tin',
-	 tinmsg = '$tinmsg', tacmsg = '$tacmsg', icmsg = '$icmsg', userstac = '$tac', usersic = '$ic', userstin = '$tin',
-	  enable_cot_imf = '$enable_cot_imf', rest_msg = '$rest_msg', crypto = '$crypto', bots = '$bots', country = '$country', site_url ='$site_url' , kyc = '$kyc', visual_card ='$visual_card'  WHERE id = 1");
+	$chk = $conn->query("SELECT id FROM setting LIMIT 1");
+	if ($chk && $chk->num_rows > 0) {
+		$sRow = $chk->fetch_assoc();
+		$sId = $sRow['id'];
+		$query = $conn->query("UPDATE setting SET name = '$sitename', shortname = '$shortname', email = '$email', phone = '$phone', description = '$description', address = '$address', imfmsg = '$imf', cotmsg = '$cot', cot_imf_counter = '$imf_cot_counter',
+		cot_error = '$cot_error', imf_error = '$imf_error', blocked_msg = '$blocked_msg',
+		enable_tin_ic_tac = '$enable_tin_ic_tac', enable_ic = '$enable_ic', enable_tin = '$enable_tin',
+		tinmsg = '$tinmsg', tacmsg = '$tacmsg', icmsg = '$icmsg', userstac = '$tac', usersic = '$ic', userstin = '$tin',
+		enable_cot_imf = '$enable_cot_imf', rest_msg = '$rest_msg', crypto = '$crypto', bots = '$bots', country = '$country', site_url ='$site_url' , kyc = '$kyc', visual_card ='$visual_card' WHERE id = '$sId'");
 
-	  if($enable_tin_ic_tac == "Yes"){
-		$query2 = $conn->query("UPDATE setting SET enable_cot_imf = 'NO' WHERE id = 1"); 
-	  }
-echo "
-	  <script> Swal.fire('Settings Updated', 'site  details have been updated', 'success');
-           </script>
-      ";
-      sleep(3);
-     ?>
- <meta http-equiv="refresh" content="2; url=../admin/Settings">
-     <?php
+		if($enable_tin_ic_tac == "Yes"){
+			$conn->query("UPDATE setting SET enable_cot_imf = 'NO' WHERE id = '$sId'"); 
+		}
+	}
+
+	echo "<script> Swal.fire('Settings Updated', 'Site details have been updated successfully', 'success'); setTimeout(function(){ location.reload(); }, 1500); </script>";
 }
 ?>

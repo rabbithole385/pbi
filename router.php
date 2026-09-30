@@ -52,6 +52,24 @@ if (is_file($file . '.php')) {
     return true;
 }
 
+// 4b. Case-insensitive PHP route resolution for Linux/Alpine
+$dir = dirname($file);
+$base = basename($file);
+if (is_dir($dir)) {
+    $targetPhp = strtolower($base . '.php');
+    $dirEntries = @scandir($dir);
+    if ($dirEntries) {
+        foreach ($dirEntries as $entry) {
+            if (strtolower($entry) === $targetPhp) {
+                $matchedFile = $dir . '/' . $entry;
+                chdir($dir);
+                require $matchedFile;
+                return true;
+            }
+        }
+    }
+}
+
 // 5. Fallback route
 chdir(__DIR__);
 require __DIR__ . '/index.php';
