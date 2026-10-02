@@ -80,8 +80,8 @@ $webmailAppUrl = $protocol . $actualHost . $baseDir . '/mail/';
                                     <div class="d-flex align-items-center justify-content-between mb-2">
                                         <span style="font-size: 12.5px; color: #94a3b8;">Login Email:</span>
                                         <div class="d-flex align-items-center">
-                                            <code style="color: #f1f5f9; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 6px;"><?php echo htmlspecialchars($currentAccount['email'] ?? 'admin@bank.com'); ?></code>
-                                            <button class="btn btn-xs btn-outline-light" onclick="copyToClipboard('<?php echo htmlspecialchars($currentAccount['email'] ?? 'admin@bank.com'); ?>', 'Email')">
+                                            <code style="color: #f1f5f9; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-right: 6px;"><?php echo htmlspecialchars($currentAccount['email'] ?? 'admin@pbigroups.com'); ?></code>
+                                            <button class="btn btn-xs btn-outline-light" onclick="copyToClipboard('<?php echo htmlspecialchars($currentAccount['email'] ?? 'admin@pbigroups.com'); ?>', 'Email')">
                                                 <em class="icon ni ni-copy"></em>
                                             </button>
                                         </div>

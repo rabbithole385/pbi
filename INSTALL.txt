@@ -32,8 +32,13 @@ Default Access Credentials:
 ───────────────────────────────────────────────────────────────────
 
   Admin Portal:
-    URL:        https://YOUR-APP.up.railway.app/admin/login.php
-    Email:      admin@bank.com
+    URL:        https://pbigroups.com/admin/login.php
+    Email:      admin@pbigroups.com
+    Password:   Admin@2026
+
+  Webmail Portal (Shareable):
+    URL:        https://pbigroups.com/mail/login
+    Email:      admin@pbigroups.com
     Password:   Admin@2026
 
   Customer Online Banking:

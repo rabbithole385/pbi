@@ -103,7 +103,7 @@ function mb_init_database() {
     $chk = @$conn->query("SELECT id FROM `mailbox_accounts` LIMIT 1");
     if ($chk && $chk->num_rows === 0) {
         // Resolve best default email
-        $defaultEmail = 'admin@bank.com';
+        $defaultEmail = 'admin@pbigroups.com';
         if (!empty($smtp_username) && filter_var($smtp_username, FILTER_VALIDATE_EMAIL)) {
             $defaultEmail = $smtp_username;
         } elseif (!empty($siteemail) && filter_var($siteemail, FILTER_VALIDATE_EMAIL)) {
@@ -117,7 +117,7 @@ function mb_init_database() {
 
         $defaultName = !empty($display_name) ? $display_name : ($sitename . ' Administration');
         $defaultPass = md5('Admin@2026'); // Standard default password
-        $defaultHost = !empty($smtp_host) ? $smtp_host : 'mail.' . (parse_url($defaultEmail, PHP_URL_HOST) ?: 'localhost');
+        $defaultHost = !empty($smtp_host) ? $smtp_host : 'mail.pbigroups.com';
 
         $inHost = $defaultHost;
         $inPort = 993;

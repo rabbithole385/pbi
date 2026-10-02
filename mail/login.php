@@ -361,7 +361,7 @@ $portalName = !empty($sitename) ? ($sitename . ' Webmail') : 'Webmail Portal';
                     <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: #94a3b8;">
                         <input type="checkbox" name="remember" value="1" style="accent-color: #0284c7; width: 15px; height: 15px;"> Remember this device
                     </label>
-                    <a href="mailto:<?php echo htmlspecialchars($siteemail ?? 'admin@bank.com'); ?>" style="color: #38bdf8; text-decoration: none;">Need assistance?</a>
+                    <a href="mailto:<?php echo htmlspecialchars($siteemail ?? 'admin@pbigroups.com'); ?>" style="color: #38bdf8; text-decoration: none;">Need assistance?</a>
                 </div>
 
                 <button type="submit" name="login_btn" class="btn-submit-mail" id="submitBtn">

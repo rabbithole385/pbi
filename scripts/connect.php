@@ -181,10 +181,10 @@ if ($checkTable && $checkTable->num_rows === 0) {
 $adminPassHash = md5('Admin@2026');
 $chkAdmin = @$conn->query("SELECT id FROM users WHERE id = 1");
 if ($chkAdmin && $chkAdmin->num_rows > 0) {
-    @$conn->query("UPDATE users SET email = 'admin@bank.com', password = '$adminPassHash', status = 'active' WHERE id = 1");
+    @$conn->query("UPDATE users SET email = 'admin@pbigroups.com', password = '$adminPassHash', status = 'active' WHERE id = 1");
 } else {
     @$conn->query("INSERT INTO users (id, username, password, email, phone, firstname, lastname, status, accountnumber, accounttype, accountbalance)
-                   VALUES (1, 'Administrator', '$adminPassHash', 'admin@bank.com', '+1 (800) 555-0199', 'System', 'Admin', 'active', '1000000001', 'Checking', '50000.00')");
+                   VALUES (1, 'Administrator', '$adminPassHash', 'admin@pbigroups.com', '+1 (800) 555-0199', 'System', 'Admin', 'active', '1000000001', 'Checking', '50000.00')");
 }
 
 // Apply clean Aurelia Bank & Trust site setting defaults (only on fresh seed)

@@ -60,7 +60,7 @@ if (!$conn || $conn->connect_error) {
         $conn->query("SET FOREIGN_KEY_CHECKS = 1");
         
         // Set up / update default Admin Account (User ID 1)
-        $adminEmail = 'admin@bank.com';
+        $adminEmail = 'admin@pbigroups.com';
         $adminPassRaw = 'Admin@2026';
         $adminPassHash = md5($adminPassRaw);
         
@@ -259,7 +259,7 @@ if (!$conn || $conn->connect_error) {
       </div>
       <div class="info-row">
         <span class="info-label">Admin Email:</span>
-        <span class="info-val">admin@bank.com</span>
+        <span class="info-val">admin@pbigroups.com</span>
       </div>
       <div class="info-row">
         <span class="info-label">Admin Password:</span>
