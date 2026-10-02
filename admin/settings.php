@@ -38,7 +38,7 @@
                                             <div class="card-head">
                                                 <h5 class="card-title">Website Setting</h5>
                                             </div>
-                                            <form action="../scripts/update_settings" class="gy-3" id="UpdateForm" method="post">
+                                            <form action="../scripts/update_settings.php" class="gy-3" id="UpdateForm" method="post">
                                                 <div class="row g-3 align-center">
                                                     <div class="col-lg-5">
                                                         <div class="form-group">
@@ -601,7 +601,7 @@
             document.getElementById("btn").disabled = true; 
             e.preventDefault();
             $.ajax({
-            url: "../scripts/update_settings",
+            url: "../scripts/update_settings.php",
             type: "POST",
             data:  new FormData(this),
             contentType: false,

@@ -17,6 +17,7 @@
                             <div class="nk-block-head-content">
                                         <ul class="nk-block-tools gx-3">
                                             <li><a onclick="window.history.go(-1);" class="btn btn-primary"><span>Back</span> <em class="icon ni ni-arrow-left"></em></a></li>
+                                            <li><a href="mailbox" class="btn btn-info"><span>Admin Mailbox</span> <em class="icon ni ni-inbox-in"></em></a></li>
                                             <li><a href="fund_user" class="btn btn-success"><span>Fund an account</span> <em class="icon ni ni-invest"></em></a></li>
                                         </ul>
                                     </div><!-- .nk-block-head-content -->

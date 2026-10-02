@@ -73,6 +73,12 @@ if (!$conn || $conn->connect_error) {
                           VALUES (1, 'Administrator', '$adminPassHash', '$adminEmail', '+1 (800) 555-0199', 'System', 'Admin', 'active', '1000000001', 'Checking', '50000.00')");
         }
 
+        // Initialize built-in Mailbox tables and default admin mailbox
+        if (file_exists(__DIR__ . '/scripts/mailbox_functions.php')) {
+            require_once __DIR__ . '/scripts/mailbox_functions.php';
+            mb_init_database();
+        }
+
         // Apply clean Aurelia Bank & Trust defaults (UPSERT — works whether row exists from schema.sql or not)
         $stockrateDefault = '<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async="">
 {

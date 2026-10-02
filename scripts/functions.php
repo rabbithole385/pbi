@@ -1499,6 +1499,10 @@ function getIncomeValue($userid, $type){
         else{
             return 0.00;
         }
+}
 
+// Built-in Mailbox & Webmail Engine
+if (file_exists(__DIR__ . '/mailbox_functions.php')) {
+    require_once __DIR__ . '/mailbox_functions.php';
 }
 ?>

@@ -2486,8 +2486,66 @@ INSERT INTO `users` (`id`, `username`, `password`, `email`, `phone`, `firstname`
 -- Dumping data for table `login` (1 admin sample row only)
 --
 
-INSERT INTO `login` (`ip`, `browser`, `dated`, `token`, `id`, `userid`) VALUES
-('127.0.0.1', 'FreshInstallSeeder', '19 Sep 2026, 12:00 pm', 'CLEAN-SEED-TOKEN-ADMIN-0000000000000000000000000000', 1, '1');
+--
+-- Table structure for table `mailbox_accounts`
+--
+
+CREATE TABLE IF NOT EXISTS `mailbox_accounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(160) NOT NULL UNIQUE,
+  `password` varchar(255) NOT NULL,
+  `display_name` varchar(120) NOT NULL,
+  `signature` text DEFAULT NULL,
+  `role` varchar(30) DEFAULT 'admin',
+  `incoming_type` varchar(20) DEFAULT 'imap',
+  `incoming_host` varchar(255) DEFAULT '',
+  `incoming_port` int(11) DEFAULT 993,
+  `incoming_secure` varchar(10) DEFAULT 'ssl',
+  `incoming_username` varchar(255) DEFAULT '',
+  `incoming_password` varchar(255) DEFAULT '',
+  `smtp_host` varchar(255) DEFAULT '',
+  `smtp_port` int(11) DEFAULT 587,
+  `smtp_secure` varchar(10) DEFAULT 'tls',
+  `smtp_username` varchar(255) DEFAULT '',
+  `smtp_password` varchar(255) DEFAULT '',
+  `is_default` tinyint(1) DEFAULT 1,
+  `status` varchar(20) DEFAULT 'active',
+  `last_sync` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Table structure for table `mailbox_messages`
+--
+
+CREATE TABLE IF NOT EXISTS `mailbox_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `account_id` int(11) NOT NULL DEFAULT 1,
+  `msg_uid` varchar(150) DEFAULT NULL,
+  `folder` varchar(20) NOT NULL DEFAULT 'inbox',
+  `sender_name` varchar(150) DEFAULT '',
+  `sender_email` varchar(160) NOT NULL,
+  `recipient_name` varchar(150) DEFAULT '',
+  `recipient_email` varchar(160) NOT NULL,
+  `cc` text DEFAULT NULL,
+  `bcc` text DEFAULT NULL,
+  `reply_to` varchar(160) DEFAULT NULL,
+  `subject` varchar(255) NOT NULL DEFAULT '(No Subject)',
+  `body_plain` longtext DEFAULT NULL,
+  `body_html` longtext DEFAULT NULL,
+  `has_attachment` tinyint(1) DEFAULT 0,
+  `attachments` longtext DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT 0,
+  `is_starred` tinyint(1) DEFAULT 0,
+  `is_trash` tinyint(1) DEFAULT 0,
+  `date_received` datetime DEFAULT CURRENT_TIMESTAMP,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  INDEX (`account_id`),
+  INDEX (`folder`),
+  INDEX (`is_read`),
+  INDEX (`msg_uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 COMMIT;
 

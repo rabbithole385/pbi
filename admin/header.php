@@ -100,6 +100,13 @@ color:#000;
                                             <span class="nk-menu-text">Send Email</span>
                                         </a>
                                     </li><!-- .nk-menu-item -->
+                                     <li class="nk-menu-item">
+                                        <a href="mailbox" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-inbox-in"></em></span>
+                                            <span class="nk-menu-text">Admin Mailbox</span>
+                                            <span class="nk-menu-badge badge-info">Webmail</span>
+                                        </a>
+                                    </li><!-- .nk-menu-item -->
                                      <?php 
                                       if ($crypto == 1) {
                                           ?>
