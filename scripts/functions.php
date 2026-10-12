@@ -178,9 +178,8 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
 */
 
 //ADMIN DETAILS
-
  $adminquery = $conn->query("SELECT * FROM users WHERE id = 1");
-
+ if ($adminquery) {
  while($roo = mysqli_fetch_array($adminquery)){
     $adfirstname = $roo["firstname"];
     $admiddlename = $roo["middlename"];
@@ -202,12 +201,12 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
     $adsecurityQuestion = $roo["securityquestion"];
     $adanswer = $roo["answer"];
     $aduserid = $roo["id"];
-
+}
 }
 
 //SMTP SETTINGS
-
 $smtpquery = $conn->query("SELECT * FROM smtp_setting WHERE id = 1");
+if ($smtpquery) {
     while($rowsmtp = mysqli_fetch_assoc($smtpquery)){
     $smtp_host = $rowsmtp["host"];
     $smtp_username = $rowsmtp["username"];
@@ -216,7 +215,7 @@ $smtpquery = $conn->query("SELECT * FROM smtp_setting WHERE id = 1");
     $display_name = $rowsmtp["display_name"];
     $smtp_auth = $rowsmtp["smtp_auth"];
     $emaillogo = $rowsmtp['emaillogo'];
-
+}
 }
 //end of smtpsetting
 // Environment variables override for zero-friction Railway / Cloud setup
@@ -719,24 +718,11 @@ function filterString($string) {
     return $string;
 }
 
-//database Connection
+//database Connection — legacy wrapper (uses global $conn from connect.php)
 function db(){
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "amoswest";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+    global $conn;
+    // Connection is already established via connect.php included at top of functions.php
 }
-
-}    
-/*
-End of database connection
-*/
 
 //ADMIN LOGIN
 
@@ -794,122 +780,10 @@ function borderError($color, $id){
 }
 
 //User Account Login
+//User Account Login — handled directly in login.php
 function loginUser() {
-    $accountID = filterString($_POST["id"]);
-    $password = filterString($_POST["password"]);
-    $errorMsg = 0;
-
-    if (empty($accountID) || empty($password)) {
-         $errorMsg =1;
-         echo"<script>
-         toastr.error('All fields are required', 'Empty field(s)', {\"progressBar\": true});
-         </script>";
-         }
-         elseif ($accountID AND $password != "") {
-         include("connect.php");
-         $password = md5($password);
-         $querrry = $conn->query("SELECT * FROM users WHERE accountnumber = '$accountID' and password = '$password' and id != 1");
-         $fetch = mysqli_fetch_assoc($querrry);
-         $resultL = mysqli_num_rows($querrry);
-         if ($resultL != 0) {
-         
-         if($fetch["approve"] == 0){
-            $errorMsg = 1;
-            echo '
-             <div class="example-alert">
-             <div class="alert alert-pro alert-danger alert-dismissible">
-               <div class="alert-text">
-                 <h6>Pending Approval!</h6>
-                  <p>Sorry, your account have not been approved. Please try again later.</p>
-                      </div>
-                      <button class="close" data-dismiss="alert"></button>
-                       </div>
-                       </div>
-                      <br>
-                ';
-            
-        }
-        if($fetch["status"] == "blocked"){
-            $errorMsg = 1;
-            echo '
-            <div class="example-alert">
-             <div class="alert alert-pro alert-danger alert-dismissible">
-               <div class="alert-text">
-                 <h6>Account Suspended!</h6>
-                  <p>Dear Customer,
-                     we have discovered suspicious activities on your account; because an unauthorized IP address carried out a transaction on your account, consequently, your account has been flagged by our risk assessment department. kindly visit our nearest branch with your identification card and utility bill to confirm your identity before it can be reactivated.</p>
-                      </div>
-                      <button class="close" data-dismiss="alert">ok</button>
-                    </div>
-                </div>
-             <br>
-            ';  
-        }
-
-       
-        elseif ($errorMsg == 0) {
-
-           /* if ($fetch["tfa"] == "active") {
-                ?>
-               <meta http-equiv="refresh" content="2; url=twa">
-                <?php
-                
-
-            }*/
-            //else{
-            echo '
-            <div class="example-alert">
-             <div class="alert alert-pro alert-success alert-dismissible">
-               <div class="alert-text">
-                  <h6>Successful</h6>
-                     <p>Your credentials matched our records</p>
-                      </div>
-                      <button class="close" data-dismiss="alert"></button>
-                       </div>
-                  </div>
-                  <br>
-                 ';
-
-        $_SESSION["loggedUser"] = $accountID;
-        $loggedtoken = loggedToken();
-        $_SESSION["loggedToken"] = $loggedtoken;
-        $userid = $fetch["id"];
-        $ip = $_SERVER["REMOTE_ADDR"];
-        $dated = date("d M y, H:i a");
-        $browser = $_SERVER["HTTP_USER_AGENT"];
-        $queryyy = $conn->query("INSERT INTO login(ip, browser, dated, token, userid) VALUES ('$ip', '$browser', '$dated', '$loggedtoken', '$userid')");
-        ?>
-        <meta http-equiv="refresh" content="2; url=../personal-banking/twa.php?accessToken=<?php echo$loggedtoken?>">
-        <?php
-        
-    }
-        }
-
-        else{
-            echo '
-            <div class="example-alert">
-             <div class="alert alert-pro alert-danger alert-dismissible">
-               <div class="alert-text">
-                 <h6>Invalid credentials</h6>
-                  <p>Your account ID or passcode is incorrect</p>
-                      </div>
-                      <button class="close" data-dismiss="alert"></button>
-                       </div>
-                  </div>
-                  <br>
-            ';
-        }
-    }
-
-        else{
-            echo "
-        <script>
-        toastr.error('An error occured, try again later', 'Error occured', {\"progressBar\": true});
-        </script>
-        ";
-        }
-
-    }
+    // Login logic is in login.php
+}
 
 
     function enrollNewUserStepOne(){

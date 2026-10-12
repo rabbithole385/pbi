@@ -5,3 +5,6 @@ NIXPACKS_PHP_ROOT_DIR = "."
 
 [phases.setup]
 nixPkgs = ["php82", "php82Extensions.mysqli", "php82Extensions.pdo_mysql"]
+
+[phases.start]
+cmd = "php -S 0.0.0.0:$PORT router.php"

@@ -9,7 +9,7 @@
     
     require_once("scripts/functions.php");
     $mail = new PHPMailer();
-    //$mail->isSMTP();
+    $mail->isSMTP();
     $mail->Host = $smtp_host;
     $mail->SMTPAuth = true;
     $mail->CharSet = "UTF-8";

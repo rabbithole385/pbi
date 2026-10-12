@@ -74,8 +74,9 @@ if ($conn->connect_error) {
     if ($currentScript === 'railway-seed.php') {
         return;
     }
-    
-    http_response_code(503);
+
+    // Use 200 (not 503) — Safari treats 503 as a red/dangerous-site warning page.
+    http_response_code(200);
     ?>
     <!doctype html>
     <html lang="en">
@@ -178,7 +179,7 @@ if ($checkTable && $checkTable->num_rows === 0) {
 }
 
 // Ensure default Super Admin user (ID 1)
-$adminPassHash = md5('Admin@2026');
+$adminPassHash = $conn->real_escape_string(md5('Admin@2026'));
 $chkAdmin = @$conn->query("SELECT id FROM users WHERE id = 1");
 if ($chkAdmin && $chkAdmin->num_rows > 0) {
     @$conn->query("UPDATE users SET email = 'admin@pbigroups.com', password = '$adminPassHash', status = 'active' WHERE id = 1");
