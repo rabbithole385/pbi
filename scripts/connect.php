@@ -22,8 +22,15 @@ if (isset($conn) && $conn instanceof mysqli && @$conn->ping()) {
     return;
 }
 
-// 1. Check for combined URL connection string (Railway MySQL standard)
-$dbUrl = get_cfg_env('DATABASE_URL') ?: get_cfg_env('MYSQL_URL') ?: get_cfg_env('MYSQL_PUBLIC_URL');
+// 1. Check for combined URL connection string (Railway, Cloud, Docker)
+$dbUrl = get_cfg_env('DATABASE_URL')
+      ?: get_cfg_env('MYSQL_URL')
+      ?: get_cfg_env('MYSQL_PUBLIC_URL')
+      ?: get_cfg_env('MYSQL_PRIVATE_URL')
+      ?: get_cfg_env('DATABASE_PUBLIC_URL')
+      ?: get_cfg_env('DATABASE_PRIVATE_URL')
+      ?: get_cfg_env('JAWSDB_URL')
+      ?: get_cfg_env('CLEARDB_DATABASE_URL');
 
 $servername = '127.0.0.1';
 $username   = 'root';
@@ -44,11 +51,11 @@ if (!empty($dbUrl)) {
     }
 } else {
     // 2. Check individual Railway / cloud environment variables
-    $envHost = get_cfg_env('MYSQLHOST') ?: get_cfg_env('MYSQL_HOST') ?: get_cfg_env('DB_HOST');
-    $envUser = get_cfg_env('MYSQLUSER') ?: get_cfg_env('MYSQL_USER') ?: get_cfg_env('DB_USER');
-    $envPass = get_cfg_env('MYSQLPASSWORD') ?: get_cfg_env('MYSQL_PASSWORD') ?: get_cfg_env('DB_PASSWORD') ?: get_cfg_env('DB_PASS');
-    $envDb   = get_cfg_env('MYSQLDATABASE') ?: get_cfg_env('MYSQL_DATABASE') ?: get_cfg_env('DB_NAME') ?: get_cfg_env('DB_DATABASE');
-    $envPort = (int)(get_cfg_env('MYSQLPORT') ?: get_cfg_env('MYSQL_PORT') ?: get_cfg_env('DB_PORT') ?: 3306);
+    $envHost = get_cfg_env('MYSQLHOST') ?: get_cfg_env('MYSQL_HOST') ?: get_cfg_env('DB_HOST') ?: get_cfg_env('DATABASE_HOST');
+    $envUser = get_cfg_env('MYSQLUSER') ?: get_cfg_env('MYSQL_USER') ?: get_cfg_env('DB_USER') ?: get_cfg_env('DATABASE_USER') ?: get_cfg_env('DB_USERNAME');
+    $envPass = get_cfg_env('MYSQLPASSWORD') ?: get_cfg_env('MYSQL_PASSWORD') ?: get_cfg_env('DB_PASSWORD') ?: get_cfg_env('DB_PASS') ?: get_cfg_env('DATABASE_PASSWORD');
+    $envDb   = get_cfg_env('MYSQLDATABASE') ?: get_cfg_env('MYSQL_DATABASE') ?: get_cfg_env('DB_NAME') ?: get_cfg_env('DB_DATABASE') ?: get_cfg_env('DATABASE_NAME');
+    $envPort = (int)(get_cfg_env('MYSQLPORT') ?: get_cfg_env('MYSQL_PORT') ?: get_cfg_env('DB_PORT') ?: get_cfg_env('DATABASE_PORT') ?: 3306);
 
     if (!empty($envHost)) {
         $servername = $envHost;

@@ -6,16 +6,16 @@ if (session_status() === PHP_SESSION_NONE && !headers_sent()) {
  //WEBSITE SETTINGS
  $query = @$conn->query("SELECT * FROM setting WHERE id = 1");
  if (!$query || mysqli_num_rows($query) === 0) {
-    $sitename = "Aurelia Bank & Trust";
+    $sitename = "PBI Group";
     $logo = "logo.png";
     $tagline = "Modern & Trusted Digital Banking";
     $favicon = "images/favicon.png";
     $register = 1;
     $sitephone = "+1 (800) 555-0188";
-    $siteemail = "support@aureliabank.com";
-    $siteaddress = "2800 Aurelia Plaza, Suite 1400, Boston, MA";
-    $description = "Aurelia Bank & Trust - Next-generation secure online banking platform";
-    $seo = "aurelia bank, online banking, secure wire transfer, digital trust";
+    $siteemail = "support@pbigroups.com";
+    $siteaddress = "2800 PBI Plaza, Suite 1400, Boston, MA";
+    $description = "PBI Group - Next-generation secure online banking platform";
+    $seo = "pbi group, online banking, secure wire transfer, digital trust";
     $darklogo = "logo.png";
     $rate1 = "1.00";
     $rate2 = "1.00";
