@@ -122,10 +122,10 @@ if (!$conn || $conn->connect_error) {
             userstac, usersic, userstin, enable_tin_ic_tac, enable_tac, enable_ic, enable_tin,
             bots, site_url, kyc, loan, visual_card
         ) VALUES (
-            1, 'Aurelia Bank & Trust', 'logo.png', '2800 Aurelia Plaza, Suite 1400, Boston, MA', 'support@aureliabank.com', '+1 (800) 555-0188', 'images/favicon.png', 'Modern & Trusted Digital Banking', '1',
-            'logo.png', 'Aurelia Bank & Trust - Next-generation secure online banking platform. Federally-insured financial institution.', 'aurelia bank, online banking, secure wire transfer, digital trust', 'footerlogo.png', '',
+            1, 'PBI Group', 'logo.png', '2800 PBI Plaza, Suite 1400, Boston, MA', 'support@pbigroups.com', '+1 (800) 555-0188', 'images/favicon.png', 'Modern & Trusted Digital Banking', '1',
+            'logo.png', 'PBI Group - Next-generation secure online banking platform. Federally-insured financial institution.', 'pbi group, online banking, secure wire transfer, digital trust', 'footerlogo.png', '',
             '$sr', '$sr2', 1, '\$', 'United States', 'images/visa.png', '',
-            'Aurelia', '$bm', 1, 'Account Suspended', '$im', '$cm',
+            'PBI', '$bm', 1, 'Account Suspended', '$im', '$cm',
             NULL, NULL, NULL, '0.3', '', '',
             5, '$ce', '$ie', 'Yes', '$rm',
             '3690NH', '3690NH', '3690NH', 'No', 'Yes', 'Yes', 'No',
